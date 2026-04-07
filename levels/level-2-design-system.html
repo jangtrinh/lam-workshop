@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Level 2: Design System — Codify Your Taste. Biến screenshots thành token set, component specs, và consistency audit loop.">
+  <title>Level 2: Design System — AI Product Design Workshop</title>
+  <link rel="stylesheet" href="../shared.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <div class="sidebar-brand">
+        <h2>Workshop</h2>
+        <p>AI Product Design</p>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Modules</div>
+        <a href="../index.html" class="nav-link"><i class="ph ph-arrow-left"></i> Hub</a>
+        <a href="level-1-foundation.html" class="nav-link"><span class="nav-stage-num">1</span> Foundation</a>
+        <a href="level-2-design-system.html" class="nav-link active"><span class="nav-stage-num">2</span> Design System</a>
+        <a href="level-3-prototype.html" class="nav-link"><span class="nav-stage-num">3</span> Prototype</a>
+        <a href="level-4-production.html" class="nav-link"><span class="nav-stage-num">4</span> Production</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Sessions</div>
+        <a href="#session-2-1" class="nav-link">2.1 Token Extraction</a>
+        <a href="#session-2-2" class="nav-link">2.2 Component Docs</a>
+        <a href="#session-2-3" class="nav-link">2.3 Consistency Audit</a>
+        <a href="#quiz" class="nav-link">Self-Check Quiz</a>
+      </div>
+    </nav>
+
+    <main class="main">
+      <h1>Design System</h1>
+      <p class="subtitle">Level 2 &middot; Codify Your Taste</p>
+
+      <!-- Level 2 intro narration -->
+      <div class="audio-guide" role="region" aria-label="Level 2 intro narration">
+        <div class="audio-label"><i class="ph ph-headphones"></i> LEVEL 2 — INTRO</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/level_2_intro.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Chào mừng đến với Level 2. Bạn đã có Context Foundation từ Level 1. Bây giờ chúng ta biến nó thành một design system thực sự — không phải viết từ đầu, mà extract từ những gì đã exist trong product của bạn. Ba session sẽ đưa bạn từ screenshots đến token set, từ token set đến component specs, và từ component specs đến consistency audit loop hoàn chỉnh.</p></details>
+      </div>
+
+      <div class="objectives">
+        <div class="objectives-title"><i class="ph ph-target"></i> LEARNING OBJECTIVES</div>
+        <ol>
+          <li>Extract token set hoàn chỉnh từ screenshots trong dưới 10 phút — grounded trong reality, không phải Figma aspirations</li>
+          <li>Generate component specs đầy đủ (states, variants, a11y, do's &amp; don'ts) từ token set bằng AI Studio</li>
+          <li>Chạy consistency audit loop — detect, fix, và verify deviations — đóng Gap 1 và Gap 3</li>
+        </ol>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- SESSION 2.1 -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="session-divider" id="session-2-1"></div>
+      <h2>2.1 Token Extraction với AI</h2>
+
+      <div class="audio-guide" role="region" aria-label="Session 2.1 intro">
+        <div class="audio-label"><i class="ph ph-headphones"></i> SESSION 2.1</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_2_1.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Session 2.1. Screenshot Thành Token Set — 5 Phút Thay Vì 1 Tuần.</p></details>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 2.1 hook">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — ATTENTION HOOK</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_2_1_hook.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Design system documentation của một startup: zero pages. Figma file: 47 screens không có shared styles. Mỗi designer mới phải mất cả tuần đầu để "tìm hiểu patterns." Một designer đã feed 4 key screenshots vào Gemini với structured extraction prompt. Kết quả: 24 design tokens trong 5 phút. 6 colors, 5 typography tiers, 8 spacing values, 5 effects. Chi phí: 0 đô, thời gian: 5 phút.</p></details>
+      </div>
+
+      <div class="why">
+        <div class="why-label"><i class="ph ph-currency-dollar"></i> ATTENTION HOOK — THE $0 DESIGN SYSTEM</div>
+        <p>Design system documentation của một startup: <strong>zero pages.</strong> Figma file: 47 screens không có shared styles. Mỗi designer mới mất cả tuần đầu "tìm hiểu patterns."</p>
+        <p>Một designer feed 4 key screenshots vào Gemini với structured extraction prompt. Kết quả: <strong>24 design tokens trong 5 phút</strong> — 6 colors, 5 typography tiers, 8 spacing values, 5 effects. Đó trở thành foundation của design system đầu tiên. Chi phí: $0, thời gian: 5 phút.</p>
+      </div>
+
+      <h3>Tại sao điều này quan trọng</h3>
+      <p>Grand Masterplan của bạn có Gap 4: <strong>abstract design tokens</strong> — tokens không được grounded trong code thực tế. Khi AI làm việc với tokens từ Figma, nó thường invent values hoặc dùng approximations. Tokens extracted từ production screenshots là <em>thứ thực sự ship</em> — không phải thứ Figma nói.</p>
+
+      <div class="insight">
+        <div class="insight-label">KEY INSIGHT</div>
+        <p>Tokens extracted từ screenshots là <strong>grounded trong reality</strong> — chúng phản ánh những gì thực sự ship, không phải những gì Figma nói. Đây là fix cho Gap 4 (abstract design tokens).</p>
+      </div>
+
+      <h3>Core Concept: The Token Extraction Pipeline</h3>
+
+      <div class="audio-guide" role="region" aria-label="Session 2.1 concept">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — KHÁI NIỆM CHÍNH</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_2_1_concept.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Pipeline rất đơn giản. Input: 4 screenshots của key screens. Process: Gemini multimodal extraction với prompt cụ thể — "Extract all visual constants: colors, fonts, spacing, border radius, shadows." Output: Token table có cấu trúc, dev-ready, version-controlled. Bí quyết: chỉ cần 4 screens, không phải 40. Hero, detail, form, dashboard — 4 loại này cover 90% token usage.</p></details>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>INPUT                    PROCESS                     OUTPUT
+4 screenshots    -&gt;    Gemini multimodal      -&gt;    Token Table
+(key screens)          "Extract all visual           (structured,
+                        constants: colors,            dev-ready,
+                        fonts, spacing,               version-controlled)
+                        radius, shadows"</pre>
+      </div>
+
+      <h3>Extraction Prompt</h3>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>Analyze these 4 screenshots and extract ALL design tokens.
+Output as a Markdown table with columns: Token Name | Value | Usage
+
+Rules:
+- Use semantic names (NOT color-1, USE surface-primary)
+- Colors: exact hex values from the screenshots
+- Typography: font-family, size (px), weight, line-height
+- Spacing: exact px values used for margin/padding patterns
+- Border radius: all unique radius values found
+- Shadows: complete box-shadow CSS values
+
+Categories to cover:
+1. Color tokens (surface, text, border, accent, state colors)
+2. Typography tokens (display, heading, body, caption, label)
+3. Spacing tokens (4px grid — xs/sm/md/lg/xl/2xl)
+4. Effect tokens (shadow-sm, shadow-md, radius-sm, radius-md, radius-lg)
+
+After the table, flag any value you extracted that you are less than 90% confident about.</pre>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 2.1 insight">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — CROSS-DOMAIN INSIGHT</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_2_1_insight.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Nhà máy sản xuất không đoán tolerances. Họ đo các parts hiện có bằng precision instruments và document exact specifications. Token extraction là quality control cho design — bạn đo những gì exist, document exact values, sau đó enforce những values đó về sau.</p></details>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label"><i class="ph ph-factory"></i> CROSS-DOMAIN — SẢN XUẤT (QUALITY CONTROL)</div>
+        <p>Nhà máy sản xuất không đoán tolerances. Họ đo các parts hiện có bằng precision instruments và document exact specifications. <strong>Token extraction là quality control cho design</strong> — bạn đo những gì exist, document exact values, sau đó enforce những values đó về sau.</p>
+      </div>
+
+      <h3>So Sánh Các Method</h3>
+      <table>
+        <tr><th>Method</th><th>Thời gian</th><th>Độ chính xác</th><th>Dev-Ready?</th><th>Maintenance</th></tr>
+        <tr><td>Manual Figma inspection</td><td>4-8 tiếng</td><td>70% (human error)</td><td>Không (cần translation)</td><td>Manual</td></tr>
+        <tr><td>Design tool export</td><td>30 phút</td><td>85% (tool limitations)</td><td>Một phần</td><td>Tool-dependent</td></tr>
+        <tr><td><strong>AI screenshot extraction</strong></td><td><strong>5 phút</strong></td><td><strong>90%+</strong></td><td><strong>Có (structured)</strong></td><td><strong>Re-run anytime</strong></td></tr>
+      </table>
+
+      <div class="best-practice">
+        <div class="best-practice-label"><i class="ph ph-check-circle"></i> BEST PRACTICE</div>
+        <div class="do-this">
+          <div class="do-label"><i class="ph ph-check-circle"></i> LÀM NÀY</div>
+          <p>Feed <strong>4 representative screens</strong> (không phải 40). Chọn: hero/landing, detail/content, form/input, dashboard/data. Bốn màn này cover 90% token usage. Yêu cầu output dạng Markdown table với columns: Token Name | Value | Usage.</p>
+        </div>
+        <div class="avoid-this">
+          <div class="avoid-label"><i class="ph ph-x-circle"></i> TRÁNH NÀY</div>
+          <p>Đừng extract từ mockups hay wireframes. Chỉ extract từ production screenshots hoặc high-fidelity designs. Garbage in = garbage out — tokens từ wireframes sẽ reflect wireframe aesthetics, không phải production design.</p>
+        </div>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 2.1 exercise">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — BÀI TẬP</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_2_1_exercise.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Screenshot 4 key screens từ project hiện tại của bạn. Chạy extraction pipeline với prompt trên. Kiểm tra: có ít nhất 20 tokens không? Tất cả names có semantic không? Cross-check 3 token ngẫu nhiên với screenshot thực tế.</p></details>
+      </div>
+
+      <div class="reflection" id="exercise-2-1">
+        <div class="reflection-label"><i class="ph ph-pencil-simple"></i> BÀI TẬP — EXTRACT YOUR TOKEN SET</div>
+        <h3>Screenshot 4 key screens và chạy extraction pipeline</h3>
+        <p>4 screens cần có: hero/landing screen, detail/content screen, form/input screen, dashboard/data screen.</p>
+
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>## COLOR TOKENS
+| Token Name        | Value   | Usage                    |
+|-------------------|---------|--------------------------|
+| color-surface-primary | #ffffff | Main background         |
+| color-surface-secondary | #fafafa | Card, panel backgrounds |
+| color-text-primary | #000000 | Headings, body text      |
+| color-text-secondary | #4e4b66 | Labels, captions        |
+| color-border      | #e0e0e0 | Dividers, input borders  |
+| color-accent      | #22c55e | CTAs, success states     |
+
+## TYPOGRAPHY TOKENS
+| Token Name     | Value                          | Usage         |
+|----------------|--------------------------------|---------------|
+| type-display   | 56px / 700 / 1.1 line-height   | Page titles   |
+| type-heading-1 | 36px / 700 / 1.2               | Section heads |
+| type-body      | 20px / 400 / 1.6               | Body text     |
+| type-label     | 14px / 700 / uppercase         | Form labels   |
+| type-caption   | 13px / 400 / 1.5               | Meta, hints   |
+
+## SPACING TOKENS
+| Token Name | Value | Usage                    |
+|------------|-------|--------------------------|
+| space-xs   | 4px   | Icon gaps, tight padding |
+| space-sm   | 8px   | List item spacing        |
+| space-md   | 16px  | Component internal       |
+| space-lg   | 24px  | Section gaps             |
+| space-xl   | 32px  | Card padding             |
+| space-2xl  | 48px  | Section margins          |
+
+## EFFECT TOKENS
+| Token Name  | Value                    | Usage           |
+|-------------|--------------------------|-----------------|
+| radius-sm   | 4px                      | Tags, chips     |
+| radius-md   | 8px                      | Cards, modals   |
+| shadow-sm   | 0 1px 3px rgba(0,0,0,.1) | Cards           |
+| shadow-md   | 0 4px 12px rgba(0,0,0,.15) | Dropdowns     |</pre>
+        </div>
+
+        <textarea placeholder="Paste token table từ Gemini extraction vào đây..." aria-label="Token extraction workspace"></textarea>
+
+        <div class="success-criteria">
+          <div class="success-criteria-label">SUCCESS CRITERIA</div>
+          <label><input type="checkbox"> 4 screenshots được chọn (hero, detail, form, data views)</label>
+          <label><input type="checkbox"> Extraction prompt cho ra structured token table (không phải prose)</label>
+          <label><input type="checkbox"> Tối thiểu 20 tokens qua color, typography, spacing, effects</label>
+          <label><input type="checkbox"> Mỗi token có semantic name (không phải color-1 mà là surface-primary)</label>
+          <label><input type="checkbox"> Cross-check: 3 tokens ngẫu nhiên được verify với screenshot thực tế</label>
+        </div>
+      </div>
+
+      <div class="apply-challenge">
+        <div class="apply-challenge-label"><i class="ph ph-lightning"></i> APPLY CHALLENGE</div>
+        <p>Dùng token table vừa extract để generate một component. Prompt: "Using ONLY these tokens [paste table], create an HTML button component with primary, secondary, and ghost variants. Every value must reference a token name, no hardcoded values." Nếu AI invent values không có trong token set của bạn — extraction chưa đủ đầy đủ. Iterate.</p>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- SESSION 2.2 -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="session-divider" id="session-2-2"></div>
+      <h2>2.2 Component Documentation với AI</h2>
+
+      <div class="audio-guide" role="region" aria-label="Session 2.2 intro">
+        <div class="audio-label"><i class="ph ph-headphones"></i> SESSION 2.2</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_2_2.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Session 2.2. AI Viết Component Spec — States, Variants, Do's và Don'ts.</p></details>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 2.2 hook">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — ATTENTION HOOK</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_2_2_hook.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Mỗi button có 4 states nhân 3 variants bằng 12 combinations. Card component: 3 states nhân 4 variants nhân 2 sizes bằng 24 combinations. Document manual mất hàng giờ mỗi component. AI generate complete component spec trong 2 phút — với states, variants, accessibility notes, và do's/don'ts. Điều kiện: bạn cần feed token set từ Session 2.1 trước.</p></details>
+      </div>
+
+      <div class="why">
+        <div class="why-label"><i class="ph ph-grid-nine"></i> ATTENTION HOOK — THE 4x3 PROBLEM</div>
+        <p>Mỗi button có 4 states (default, hover, active, disabled) &times; 3 variants (primary, secondary, ghost) = <strong>12 combinations</strong>. Card component: 3 states &times; 4 variants &times; 2 sizes = <strong>24 combinations</strong>. Document manual mất hàng giờ mỗi component.</p>
+        <p><strong>AI generate complete component spec trong 2 phút</strong> — với states, variants, accessibility notes, do's/don'ts. Điều kiện: bạn phải feed token set từ Session 2.1 trước. Token set là "âm nhạc" — AI là nhạc sĩ.</p>
+      </div>
+
+      <h3>Core Concept: The Component Spec Template</h3>
+
+      <div class="audio-guide" role="region" aria-label="Session 2.2 concept">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — KHÁI NIỆM CHÍNH</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_2_2_concept.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Template component spec có 8 phần. Anatomy là các parts cấu thành component. Variants là các biến thể: primary, secondary, ghost. States là các trạng thái: default, hover, active, disabled, loading, error. Tokens Used là map các token từ session 2.1 vào component. Responsive là cách nó scale hoặc reflow. Accessibility là ARIA roles, focus, contrast. Do's là cách dùng đúng với ví dụ. Don'ts là cách dùng sai với ví dụ. Feed template này cùng token set vào AI Studio.</p></details>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>COMPONENT: [Name]
+├── ANATOMY       (các parts cấu thành: label, icon, container, state overlay)
+├── VARIANTS      (primary, secondary, ghost, destructive...)
+├── STATES        (default, hover, active, disabled, loading, error)
+├── TOKENS USED   (map tokens từ Session 2.1 vào component)
+├── RESPONSIVE    (cách scale/reflow ở breakpoints)
+├── A11Y          (ARIA roles, keyboard focus, color contrast ratios)
+├── DO's          (cách dùng đúng với ví dụ cụ thể)
+└── DON'Ts        (common misuse với ví dụ cụ thể)</pre>
+      </div>
+
+      <h3>AI Studio System Instruction</h3>
+      <p>Setup AI Studio với system instruction này một lần — sau đó chỉ cần paste token set và component name:</p>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>You are a design system documentarian with 10 years of experience.
+
+Given a component name and a token set, produce a COMPLETE component spec.
+
+## Output format (strict — follow exactly):
+
+### COMPONENT: [Name]
+
+**ANATOMY**
+[List all sub-parts with descriptions]
+
+**VARIANTS**
+[Table: Variant | When to use | Token differences from default]
+
+**STATES**
+[Table: State | Visual change | Token used | Accessibility note]
+
+**TOKENS USED**
+[Table: Property | Token Name | Value | Applies to]
+
+**RESPONSIVE**
+[Describe behavior at 320px / 768px / 1280px]
+
+**A11Y**
+- ARIA role: [role]
+- Keyboard: [Tab, Enter, Space behavior]
+- Contrast: [ratio requirement, which tokens ensure it]
+- Screen reader: [what gets announced]
+
+**DO's** (minimum 3)
+[Each with a concrete scenario]
+
+**DON'Ts** (minimum 3)
+[Each with what goes wrong if violated]
+
+## Rules:
+- Every value must reference a token name, NEVER hardcode
+- If token set doesn't cover a needed value, FLAG it (do not invent)
+- States must be exhaustive — never skip disabled or error</pre>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 2.2 insight">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — CROSS-DOMAIN INSIGHT</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_2_2_insight.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Trước khi quay phim, script supervisor tạo "breakdown sheet" cho mỗi cảnh: diễn viên cần, props, trang phục, ánh sáng, địa điểm. Không có gì là improvisation. Component spec là breakdown sheet — nó liệt kê mọi state, variant, và constraint để không developer nào phải improvise.</p></details>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label"><i class="ph ph-film-reel"></i> CROSS-DOMAIN — ĐIỆN ẢNH (SCRIPT BREAKDOWNS)</div>
+        <p>Trước khi quay, script supervisor tạo "breakdown sheet" cho mỗi cảnh: diễn viên, props, trang phục, ánh sáng, địa điểm. Không có improvisation. <strong>Component spec là breakdown sheet</strong> — nó liệt kê mọi state, variant, và constraint để không developer nào phải improvise khi implement.</p>
+      </div>
+
+      <h3>So Sánh Các Method</h3>
+      <table>
+        <tr><th>Method</th><th>Thời gian/Component</th><th>Covers States?</th><th>Covers A11y?</th><th>Maintainable?</th></tr>
+        <tr><td>Figma annotations</td><td>2-4 tiếng</td><td>Một phần</td><td>Hiếm khi</td><td>Fragile</td></tr>
+        <tr><td>Storybook manual</td><td>4-8 tiếng</td><td>Có</td><td>Optional</td><td>Medium</td></tr>
+        <tr><td>Confluence wiki</td><td>1-2 tiếng</td><td>Một phần</td><td>Hiếm khi</td><td>Nhanh stale</td></tr>
+        <tr><td><strong>AI + token set</strong></td><td><strong>2-5 phút</strong></td><td><strong>Có (all)</strong></td><td><strong>Có</strong></td><td><strong>Re-generate</strong></td></tr>
+      </table>
+
+      <div class="best-practice">
+        <div class="best-practice-label"><i class="ph ph-check-circle"></i> BEST PRACTICE</div>
+        <div class="do-this">
+          <div class="do-label"><i class="ph ph-check-circle"></i> LÀM NÀY</div>
+          <p>Generate specs cho 5 components dùng nhiều nhất trước: button, card, input, modal, navigation. Dùng output làm foundation — human review vẫn cần cho edge cases. Lưu specs dưới dạng Markdown files trong project repo.</p>
+        </div>
+        <div class="avoid-this">
+          <div class="avoid-label"><i class="ph ph-x-circle"></i> TRÁNH NÀY</div>
+          <p>Đừng generate specs mà không load token set. AI sẽ invent tokens, và những invented values đó sẽ drift khỏi design thực tế của bạn — đây là nguồn gốc của Gap 4.</p>
+        </div>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 2.2 exercise">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — BÀI TẬP</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_2_2_exercise.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Generate complete specs cho 3 components từ project của bạn: button, card, và một component nữa bạn chọn. Mỗi spec phải có ít nhất 3 variants, 4 states, tokens used, do's và don'ts. Cross-check token references với token set từ Session 2.1 — không được có invented token nào.</p></details>
+      </div>
+
+      <div class="reflection" id="exercise-2-2">
+        <div class="reflection-label"><i class="ph ph-pencil-simple"></i> BÀI TẬP — DOCUMENT 3 CORE COMPONENTS</div>
+        <h3>Generate complete specs cho 3 components từ token set của bạn</h3>
+        <p>Components cần document: Button, Card, và một component của riêng bạn (Input, Modal, hoặc Navigation).</p>
+
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre># Component Spec: Button
+
+## ANATOMY
+- Container: border, background, padding
+- Label: text content
+- Icon (optional): leading or trailing
+- State overlay: hover/active/focus ring
+
+## VARIANTS
+| Variant   | When to use                      | Key difference         |
+|-----------|----------------------------------|------------------------|
+| Primary   | Main CTA, one per view           | color-accent background|
+| Secondary | Alternate action                 | Outlined, no fill      |
+| Ghost     | Low-emphasis, inline actions     | No border, no fill     |
+
+## STATES
+| State    | Visual Change            | Token Used              |
+|----------|--------------------------|-------------------------|
+| Default  | Resting state            | color-accent            |
+| Hover    | Slightly darker          | color-accent + 10% dark |
+| Active   | Pressed, scale 0.98      | color-accent + 20% dark |
+| Disabled | 40% opacity              | opacity: 0.4            |
+| Loading  | Spinner replaces label   | animation: spin 1s      |
+
+## TOKENS USED
+| Property    | Token Name            | Value    |
+|-------------|-----------------------|----------|
+| Background  | color-accent          | #22c55e  |
+| Text        | color-text-on-accent  | #ffffff  |
+| Padding     | space-md space-lg     | 16px 24px|
+| Border-radius | radius-sm           | 4px      |
+
+## DO's
+- Use Primary for the single most important action on a screen
+- Use Ghost for actions in dense lists or tables
+- Always include a loading state for async actions
+
+## DON'Ts
+- Don't use more than 1 Primary button per view section
+- Don't use a button where a link is appropriate
+- Don't remove focus ring — required for keyboard navigation</pre>
+        </div>
+
+        <textarea placeholder="Paste component specs từ AI Studio vào đây..." aria-label="Component documentation workspace"></textarea>
+
+        <div class="success-criteria">
+          <div class="success-criteria-label">SUCCESS CRITERIA</div>
+          <label><input type="checkbox"> 3 component specs được generate (button, card, one more)</label>
+          <label><input type="checkbox"> Mỗi spec cover: variants (3+), states (4+), tokens used, do's (3+), don'ts (3+)</label>
+          <label><input type="checkbox"> Token references khớp với Session 2.1 output (không có invented tokens)</label>
+          <label><input type="checkbox"> Một spec được review và correct chỗ AI make wrong assumptions</label>
+          <label><input type="checkbox"> Specs được lưu dưới dạng Markdown files trong project repo</label>
+        </div>
+      </div>
+
+      <div class="apply-challenge">
+        <div class="apply-challenge-label"><i class="ph ph-lightning"></i> APPLY CHALLENGE</div>
+        <p>Lấy button spec vừa generate. Paste vào Antigravity hoặc Gemini và yêu cầu: "Implement this button component spec as HTML + Tailwind CSS. Every token value must match exactly." Sau đó so sánh implementation với spec — có state nào bị miss không? Bất kỳ discrepancy nào là signal để refine spec, không phải implementation.</p>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- SESSION 2.3 -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="session-divider" id="session-2-3"></div>
+      <h2>2.3 Consistency Audit với AI</h2>
+
+      <div class="audio-guide" role="region" aria-label="Session 2.3 intro">
+        <div class="audio-label"><i class="ph ph-headphones"></i> SESSION 2.3</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_2_3.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Session 2.3. AI Tìm 7 Lỗi Bạn Không Thấy — Consistency Audit.</p></details>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 2.3 hook">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — ATTENTION HOOK</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_2_3_hook.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Một design team ship 12 screens họ confident. AI audit tìm thấy 7 inconsistencies: 3 color mismatches với hex values lệch 1-2 digits, 2 spacing violations 16px vs 14px trong similar contexts, 2 typography drifts font-weight 500 vs 600 ở cùng hierarchy level. Mắt người không phát hiện được cả 7. Người dùng cảm thấy "something is off" nhưng không articulate được. Consistency là khoảng cách giữa "tốt" và "premium."</p></details>
+      </div>
+
+      <div class="why">
+        <div class="why-label"><i class="ph ph-magnifying-glass"></i> ATTENTION HOOK — THE INVISIBLE INCONSISTENCIES</div>
+        <p>Một design team ship 12 screens họ confident. AI audit tìm ra <strong>7 inconsistencies</strong>: 3 color mismatches (hex values lệch 1-2 digits), 2 spacing violations (16px vs 14px trong similar contexts), 2 typography drifts (font-weight 500 vs 600 ở cùng hierarchy level).</p>
+        <p>Mắt người miss tất cả 7. Users cảm thấy "something is off" nhưng không articulate được. <strong>Consistency là khoảng cách giữa "tốt" và "premium."</strong></p>
+      </div>
+
+      <h3>Tại sao điều này quan trọng</h3>
+      <p>Grand Masterplan của bạn thiếu hai thứ: feedback loops (Gap 1) và verification steps (Gap 3). Output được accept mà không qua audit. Consistency audit là <strong>feedback loop cuối cùng</strong> — nơi "vibe" trở thành data.</p>
+
+      <h3>Core Concept: The Audit Loop</h3>
+
+      <div class="audio-guide" role="region" aria-label="Session 2.3 concept">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — KHÁI NIỆM CHÍNH</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_2_3_concept.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Audit loop gồm 4 bước. Screenshots của 4+ screens được load vào Gemini. Gemini multimodal analysis compare screens với token set và flag bất kỳ giá trị nào deviate. Deviation report được generate với specific values: expected vs actual, cụ thể đến từng screen và element. Sau đó fix, re-screenshot, re-audit. Vòng lặp tiếp tục cho đến khi 0 deviations. Đây là verification loop đóng Gap 3.</p></details>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>SCREENSHOTS (4+ screens)
+    |
+    v
+GEMINI MULTIMODAL ANALYSIS
+"Compare these screens against this token set.
+ Flag any value that deviates from defined tokens."
+    |
+    v
+DEVIATION REPORT
+(screen name, element, expected token value vs actual value)
+    |
+    v
+FIX -&gt; RE-SCREENSHOT -&gt; RE-AUDIT
+(vòng lặp cho đến khi 0 deviations — đóng Gap 1 và Gap 3)</pre>
+      </div>
+
+      <h3>Audit Prompt</h3>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>I am providing [N] screenshots and my design token set below.
+
+## Task
+Compare each screenshot against the token set. For every visual element:
+1. Identify what token it should be using
+2. Estimate the actual value from the screenshot
+3. Flag if the estimated value deviates from the token value
+
+## Output format (strict):
+### Deviation Report
+
+| Screen | Element | Expected Token | Expected Value | Estimated Actual | Deviation |
+|--------|---------|----------------|----------------|------------------|-----------|
+
+If 0 deviations found, explain your analysis reasoning — do not just say "all good."
+
+## Token Set
+[Paste full token table from Session 2.1]
+
+## Severity classification:
+- CRITICAL: visible mismatch (color family wrong, size off by 4px+)
+- MODERATE: subtle mismatch (hex off by 1-2 digits, spacing off by 2px)
+- INFO: potential issue worth checking manually</pre>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label">KEY INSIGHT</div>
+        <p>Đây là <strong>feedback loop</strong> mà Lam's Grand Masterplan đang thiếu (Gap 1, Gap 3). Output không được accept — nó được audit, corrected, và re-audited. Deviation report được lưu trong git cùng token set — tạo audit trail, đóng Gap 5 (version control).</p>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 2.3 insight">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — CROSS-DOMAIN INSIGHT</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_2_3_insight.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Six Sigma's core idea: measure, analyze, improve, CONTROL. Phase "control" là ongoing audits để prevent regression. Consistency audit của bạn là "control" phase của design — không có nó, mỗi iteration đều introduce drift.</p></details>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label"><i class="ph ph-chart-bar"></i> CROSS-DOMAIN — SẢN XUẤT (SIX SIGMA)</div>
+        <p>Six Sigma's core: Measure, Analyze, Improve, <strong>CONTROL</strong>. Phase "Control" là ongoing audits để prevent regression. <strong>Consistency audit là "Control" phase của design</strong> — không có nó, mỗi iteration đều introduce drift. Bạn không đang improve — bạn đang đi vòng tròn.</p>
+      </div>
+
+      <h3>So Sánh Các Audit Method</h3>
+      <table>
+        <tr><th>Audit Method</th><th>Screens/Hour</th><th>Sub-pixel?</th><th>Systematic?</th><th>Repeatable?</th></tr>
+        <tr><td>Human review</td><td>4-6</td><td>Không</td><td>Subjective</td><td>Inconsistent</td></tr>
+        <tr><td>Figma plugins</td><td>10-15</td><td>Một phần</td><td>Rules-based</td><td>Medium</td></tr>
+        <tr><td><strong>AI multimodal audit</strong></td><td><strong>20+</strong></td><td><strong>Có</strong></td><td><strong>Token-based</strong></td><td><strong>100%</strong></td></tr>
+      </table>
+
+      <div class="best-practice">
+        <div class="best-practice-label"><i class="ph ph-check-circle"></i> BEST PRACTICE</div>
+        <div class="do-this">
+          <div class="do-label"><i class="ph ph-check-circle"></i> LÀM NÀY</div>
+          <p>Chạy audit loop <strong>cho đến khi 0 deviations</strong>. Lưu deviation report trong git cùng với token set. Mỗi fix có một commit message mô tả: "Fix: update card border-radius from 8px to radius-md (6px) per token set." Đây là audit trail — fix Gap 5.</p>
+        </div>
+        <div class="avoid-this">
+          <div class="avoid-label"><i class="ph ph-x-circle"></i> TRÁNH NÀY</div>
+          <p>Đừng audit wireframes hoặc low-fidelity mockups. Chỉ audit high-fidelity screens hoặc production screenshots — đó là nơi inconsistencies thực sự sống. Auditing wireframes sẽ flag "issues" không relevant với production.</p>
+        </div>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 2.3 exercise">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — BÀI TẬP</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_2_3_exercise.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Lấy 4 screens từ project hiện tại. Load vào Gemini cùng với token set từ Session 2.1. Chạy audit prompt. Nhận deviation report. Apply fixes cho ít nhất 2 deviations. Re-audit để verify fixes đã giải quyết vấn đề. Đây là verification loop hoàn chỉnh.</p></details>
+      </div>
+
+      <div class="reflection" id="exercise-2-3">
+        <div class="reflection-label"><i class="ph ph-pencil-simple"></i> BÀI TẬP — AUDIT 4 SCREENS</div>
+        <h3>Chạy full audit loop cho 4 screens từ project của bạn</h3>
+        <p>Dùng token set từ Session 2.1. Mục tiêu: 0 deviations sau khi fix.</p>
+
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>## Deviation Report — [Project Name] — [Date]
+
+| Screen      | Element         | Expected Token  | Expected Value | Estimated Actual | Severity |
+|-------------|-----------------|-----------------|----------------|------------------|----------|
+| Dashboard   | Card border     | color-border    | #e0e0e0        | #d9d9d9          | MODERATE |
+| Form        | Input label     | type-label      | 14px/700       | 14px/600         | MODERATE |
+| Detail page | Section spacing | space-2xl       | 48px           | 40px             | CRITICAL |
+| Hero        | CTA background  | color-accent    | #22c55e        | #22c564          | MODERATE |
+
+## Fix Log
+- [ ] Dashboard card border: #d9d9d9 → #e0e0e0 (matches color-border)
+- [ ] Form label weight: 600 → 700 (matches type-label)
+- [ ] Detail page spacing: 40px → 48px (matches space-2xl)
+- [ ] Hero CTA: #22c564 → #22c55e (matches color-accent)
+
+## Re-audit Result
+- [ ] All 4 deviations resolved
+- [ ] 0 new deviations introduced</pre>
+        </div>
+
+        <textarea placeholder="Paste deviation report từ Gemini audit vào đây..." aria-label="Consistency audit workspace"></textarea>
+
+        <div class="success-criteria">
+          <div class="success-criteria-label">SUCCESS CRITERIA</div>
+          <label><input type="checkbox"> 4 screenshots được load vào Gemini cùng với token set từ Session 2.1</label>
+          <label><input type="checkbox"> Deviation report được generate với specific values (expected vs actual)</label>
+          <label><input type="checkbox"> Ít nhất 3 deviations được identified (hoặc giải thích tại sao 0 là valid)</label>
+          <label><input type="checkbox"> Fixes được apply cho 2+ deviations</label>
+          <label><input type="checkbox"> Re-audit confirm fixes đã giải quyết issues (verification loop hoàn thành)</label>
+        </div>
+      </div>
+
+      <div class="apply-challenge">
+        <div class="apply-challenge-label"><i class="ph ph-lightning"></i> APPLY CHALLENGE</div>
+        <p>Commit deviation report và token set vào git cùng nhau. Commit message: "design: add token set v1 and initial consistency audit — N deviations found, M fixed." Đây là lần đầu tiên design system của bạn có <strong>version history</strong>. Lần sau khi audit lại, bạn có thể so sánh: regression hay improvement? Đây là fix cho Gap 5 (no version control).</p>
+      </div>
+
+      <!-- Level 2 closing narration -->
+      <div class="audio-guide" role="region" aria-label="Level 2 closing narration">
+        <div class="audio-label"><i class="ph ph-headphones"></i> LEVEL 2 — CLOSING</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/level_2_closing.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Chúc mừng bạn đã hoàn thành Level 2. Bạn đã có token set grounded trong reality, component specs đầy đủ với states và accessibility, và consistency audit loop tự động. Ba thứ này combine thành input cho Level 3: DESIGN.MD — single source of truth cho mọi AI tool. Khi bạn có DESIGN.MD, mọi AI agent đều có thể implement đúng design của bạn mà không cần bạn giải thích lại.</p></details>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- QUIZ -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="session-divider" id="quiz"></div>
+      <div class="quiz">
+        <div class="quiz-title"><i class="ph ph-exam"></i> LEVEL 2 SELF-CHECK QUIZ</div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q1: Tại sao extract tokens từ screenshots thay vì Figma files?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) Nhanh hơn</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) Screenshots cho thấy những gì thực sự ship — grounded trong reality</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) Figma không export được tokens</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) Figma hay bị lỗi</li>
+          </ul>
+          <div class="quiz-answer">B — Figma tokens là aspirational (những gì designer muốn). Screenshot tokens là actual (những gì thực sự render). Gap giữa hai thứ này là nguồn gốc của Gap 4 trong Grand Masterplan. Chỉ có production screenshots mới cho tokens grounded trong reality.</div>
+        </div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q2: AI cần tối thiểu thông tin gì để generate component spec hữu ích?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) Tên component mà thôi</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) Tên component + token set</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) Tên component + token set + screenshot ví dụ</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) Tên component + Figma link</li>
+          </ul>
+          <div class="quiz-answer">B — Tên component + token set là minimum. Không có token set, AI sẽ invent values và những invented values đó sẽ drift khỏi design thực tế. C (thêm screenshot) tốt hơn nhưng B là minimum viable.</div>
+        </div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q3: Consistency audit tìm ra 0 deviations trong lần chạy đầu tiên. Bạn kết luận gì?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) Design hoàn hảo — ship ngay</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) Kiểm tra xem token set có quá loose hoặc audit prompt có quá lenient không</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) Skip audit lần sau</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) Tăng số screens cần audit</li>
+          </ul>
+          <div class="quiz-answer">B — 0 deviations on first try thường là signal của vấn đề với chính audit, không phải design. Token set có thể quá broad (e.g., "color-primary: any shade of blue") hoặc audit prompt không specific. Luôn question 0-deviation results.</div>
+        </div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q4: Button spec hiển thị "border-radius: 8px" nhưng token set nói "radius-md: 6px." Chuyện gì đã xảy ra?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) AI làm tròn số lên</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) AI invented một token thay vì dùng token set của bạn — token set chưa được load</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) Cả hai đều đúng, có thể dùng cả hai</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) 6px và 8px không có sự khác biệt đáng kể</li>
+          </ul>
+          <div class="quiz-answer">B — Đây là dấu hiệu điển hình của token set chưa được load đúng cách. AI default về values "phổ biến" thay vì values của bạn. Fix: luôn paste toàn bộ token table vào prompt trước khi yêu cầu component spec.</div>
+        </div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q5: Điều gì làm cho audit loop là "feedback loop" thay vì chỉ là one-time check?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) Nó chạy tự động</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) Fix → Re-screenshot → Re-audit cho đến khi 0 deviations</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) Nó generate report</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) Nó dùng nhiều screens hơn</li>
+          </ul>
+          <div class="quiz-answer">B — Feedback loop nghĩa là output của vòng trước trở thành input của vòng tiếp theo. Fix → Re-screenshot → Re-audit là vòng lặp — không phải điểm dừng. Đây là thứ đóng Gap 1 (no feedback loops) và Gap 3 (no verification) trong Grand Masterplan.</div>
+        </div>
+      </div>
+
+      <!-- Bottom Nav -->
+      <div class="bottom-nav">
+        <a href="level-1-foundation.html"><i class="ph ph-arrow-left"></i> Level 1: Foundation</a>
+        <a href="level-3-prototype.html">Level 3: Prototype <i class="ph ph-arrow-right"></i></a>
+      </div>
+
+      <div class="footer">
+        <div class="footer-brand">AI Product Design Workshop</div>
+        <p>Lam's Curriculum &middot; Level 2 of 4 &middot; Design System</p>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Copy button
+    function copyCode(btn) {
+      const pre = btn.parentElement.querySelector('pre');
+      navigator.clipboard.writeText(pre.textContent.trim()).then(() => {
+        btn.textContent = 'COPIED';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'COPY'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+
+    // Quiz
+    function selectQuiz(li) {
+      const item = li.closest('.quiz-item');
+      const correctAnswer = parseInt(item.dataset.answer);
+      const selectedOption = parseInt(li.dataset.option);
+      const options = item.querySelectorAll('.quiz-options li');
+      const answer = item.querySelector('.quiz-answer');
+
+      options.forEach(o => { o.classList.remove('selected', 'correct', 'incorrect'); });
+
+      if (selectedOption === correctAnswer) {
+        li.classList.add('correct');
+      } else {
+        li.classList.add('incorrect');
+        options[correctAnswer].classList.add('correct');
+      }
+      answer.classList.add('revealed');
+    }
+  </script>
+</body>
+</html>

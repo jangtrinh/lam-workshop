@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Level 3: Prototype — Build in Browser. DESIGN.MD, Antigravity Prototyping, Multi-Page System.">
+  <title>Level 3: Prototype — Workshop AI Product Design</title>
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <div class="sidebar-brand">
+        <h2>Workshop</h2>
+        <p>AI Product Design</p>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Modules</div>
+        <a href="../index.html" class="nav-link"><i class="ph ph-arrow-left"></i> Hub</a>
+        <a href="level-1-foundation.html" class="nav-link"><span class="nav-stage-num">1</span> Foundation</a>
+        <a href="level-2-design-system.html" class="nav-link"><span class="nav-stage-num">2</span> Design System</a>
+        <a href="level-3-prototype.html" class="nav-link active"><span class="nav-stage-num">3</span> Prototype</a>
+        <a href="level-4-production.html" class="nav-link"><span class="nav-stage-num">4</span> Production</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Sessions</div>
+        <a href="#session-3-1" class="nav-link">3.1 DESIGN.MD</a>
+        <a href="#session-3-2" class="nav-link">3.2 Antigravity Proto</a>
+        <a href="#session-3-3" class="nav-link">3.3 Multi-Page System</a>
+        <a href="#quiz" class="nav-link">Self-Check Quiz</a>
+      </div>
+    </nav>
+
+    <main class="main">
+      <h1>Prototype</h1>
+      <p class="subtitle">Level 3 &middot; Build in Browser — từ DESIGN.MD đến prototype chạy thật.</p>
+
+      <div class="audio-guide" role="region" aria-label="Level 3 intro narration">
+        <div class="audio-label"><i class="ph ph-headphones"></i> LEVEL 3 — INTRO</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/level_3_intro.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Chào mừng đến với Level 3 — Prototype. Ở đây bạn sẽ biến toàn bộ công việc từ Level 1 và Level 2 thành prototype thật sự chạy trong trình duyệt. Ba session: xây DESIGN.MD làm nguồn duy nhất, dùng Antigravity tạo prototype từ không có gì, rồi mở rộng thành hệ thống nhiều trang với Stitch. Không còn Figma handoff. Không còn khoảng cách giữa thiết kế và code. Bắt đầu thôi.</p></details>
+      </div>
+
+      <div class="objectives">
+        <div class="objectives-title"><i class="ph ph-target"></i> LEARNING OBJECTIVES</div>
+        <ol>
+          <li>Compile tất cả output từ Level 2 thành một DESIGN.MD duy nhất — nguồn sự thật cho mọi AI tool</li>
+          <li>Tạo prototype tương tác trong 15-30 phút bằng Antigravity + DESIGN.MD</li>
+          <li>Xây hệ thống nhiều trang nhất quán với shared.css và navigation thật</li>
+        </ol>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- SESSION 3.1 -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="session-divider" id="session-3-1"></div>
+      <h2>3.1 DESIGN.MD — Nguồn Sự Thật Duy Nhất</h2>
+
+      <div class="audio-guide" role="region" aria-label="Session 3.1 intro">
+        <div class="audio-label"><i class="ph ph-headphones"></i> SESSION 3.1</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_3_1.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Session 3.1. DESIGN.MD. Một file Markdown bằng toàn bộ design system.</p></details>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 3.1 attention hook">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — ATTENTION HOOK</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_3_1_hook.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Thử nghiệm này: yêu cầu năm AI tool khác nhau tạo một trang landing "clean, minimal, warm." Bạn sẽ nhận được năm thiết kế hoàn toàn khác nhau. Màu khác, spacing khác, typography khác. Vì "clean minimal warm" không có nghĩa gì cụ thể. DESIGN.MD thay thế cảm giác bằng giá trị thật. Một designer đã thử: chuyển từ mô tả bằng lời sang DESIGN.MD, và tỉ lệ nhất quán của AI output tăng từ 30% lên 95%, trên mọi tool, mọi session.</p></details>
+      </div>
+
+      <div class="why">
+        <div class="why-label">ATTENTION HOOK — THE "CLEAN MINIMAL WARM" ROULETTE</div>
+        <p>Tell 5 different AI tools "create a clean, minimal, warm landing page." You get 5 completely different designs — different colors, different spacing, different typography. The words "clean minimal warm" mean nothing without specifics.</p>
+        <p><strong>DESIGN.MD replaces vibes with values.</strong> One designer switched from verbal descriptions to DESIGN.MD: AI-generated UI consistency went from 30% match to <strong>95% match</strong> — across every tool, every session.</p>
+      </div>
+
+      <h3>Tại Sao Cần DESIGN.MD</h3>
+      <table>
+        <tr><th>Design Source</th><th>AI Consistency</th><th>Portable?</th><th>Version-Controlled?</th><th>Dev-Ready?</th></tr>
+        <tr><td>Figma file</td><td>40% (AI không đọc được Figma)</td><td>Không</td><td>Không</td><td>Không</td></tr>
+        <tr><td>Mô tả bằng lời</td><td>20% ("clean minimal warm")</td><td>Không</td><td>Không</td><td>Không</td></tr>
+        <tr><td>JSON tokens</td><td>70% (values only, no intent)</td><td>Có</td><td>Có</td><td>Một phần</td></tr>
+        <tr><td><strong>DESIGN.MD</strong></td><td><strong>95%</strong></td><td><strong>Có</strong></td><td><strong>Có (git)</strong></td><td><strong>Có</strong></td></tr>
+      </table>
+
+      <h3>Core Concept: 9-Section DESIGN.MD</h3>
+      <div class="audio-guide" role="region" aria-label="Session 3.1 concept">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — KHÁI NIỆM CHÍNH</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_3_1_concept.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>DESIGN.MD có chín section. Section một đến sáu đến thẳng từ output của Level 2: tokens từ session 2.1, component specs từ 2.2, và audit rules từ 2.3. Section bảy là Do's và Don'ts từ kết quả audit. Section tám là Responsive Behavior. Section chín là điều mới: Agent Prompt Guide, những prompt copy-paste sẵn cho các AI tool. DESIGN.MD không phải viết từ đầu mà compile từ công việc bạn đã làm.</p></details>
+      </div>
+
+      <p>DESIGN.MD không cần viết từ đầu — đây là bản <strong>compilation</strong> của toàn bộ Level 2 vào một file portable, version-controlled:</p>
+
+      <table>
+        <tr><th>#</th><th>Section</th><th>Nguồn</th><th>Mục Đích</th></tr>
+        <tr><td>1</td><td>Visual Theme &amp; Atmosphere</td><td>Brief / brand guidelines</td><td>Philosophy, mood, identity — AI hiểu "cảm giác" thật sự là gì</td></tr>
+        <tr><td>2</td><td>Color Palette &amp; Roles</td><td>Session 2.1 (token extraction)</td><td>Hex values + semantic mapping — AI không được phép đoán màu</td></tr>
+        <tr><td>3</td><td>Typography Rules</td><td>Session 2.1 (token extraction)</td><td>Families, hierarchy, weights, sizes — cụ thể đến từng px</td></tr>
+        <tr><td>4</td><td>Component Stylings</td><td>Session 2.2 (component specs)</td><td>Buttons, cards, inputs + tất cả states và variants</td></tr>
+        <tr><td>5</td><td>Layout Principles</td><td>Session 2.1 + 2.2</td><td>Spacing system, containers, grid — không còn magic numbers</td></tr>
+        <tr><td>6</td><td>Depth &amp; Elevation</td><td>Session 2.1 (shadow tokens)</td><td>Shadows, layers, surface hierarchy — depth không bị bỏ qua</td></tr>
+        <tr><td>7</td><td>Do's and Don'ts</td><td>Session 2.3 (audit findings)</td><td>10+ enforced rules — các lỗi đã phát hiện không được lặp lại</td></tr>
+        <tr><td>8</td><td>Responsive Behavior</td><td>Breakpoint decisions</td><td>Breakpoints, scaling rules, collapse patterns cho mobile</td></tr>
+        <tr><td>9</td><td>Agent Prompt Guide</td><td>Viết mới</td><td>Copy-paste prompts cho Antigravity, Stitch, Gemini — section duy nhất hoàn toàn mới</td></tr>
+      </table>
+
+      <div class="insight">
+        <div class="insight-label"><i class="ph ph-book-open"></i> KEY INSIGHT — DESIGN.MD LÀ COMPILATION, KHÔNG PHẢI CREATION</div>
+        <p>Sections 1-6 đến từ Session 2.1 (tokens) và 2.2 (component specs). Section 7 đến từ 2.3 (audit findings). DESIGN.MD là bản tổng hợp của toàn bộ Level 2. Section 9 (Agent Prompt Guide) là phần duy nhất bạn viết mới — và đây là phần mạnh nhất.</p>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 3.1 cross-domain insight">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — CROSS-DOMAIN INSIGHT</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_3_1_insight.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Kiến trúc sư không đưa cho nhà thầu một mood board và nói "làm cho nó cảm giác hiện đại." Họ viết Design Brief: vật liệu chính xác, kích thước, dung sai, và ràng buộc. Nhà thầu đọc brief và xây đúng spec. DESIGN.MD là Design Brief của bạn. AI agent là nhà thầu.</p></details>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label"><i class="ph ph-book-open"></i> CROSS-DOMAIN — ARCHITECTURE (DESIGN BRIEF)</div>
+        <p>Architects don't hand contractors a mood board saying "make it feel modern." They write a Design Brief: exact materials, dimensions, tolerances, constraints. The contractor reads and builds to spec. <strong>DESIGN.MD is your Design Brief. The AI agent is the contractor.</strong></p>
+      </div>
+
+      <div class="best-practice">
+        <div class="best-practice-label"><i class="ph ph-check-circle"></i> BEST PRACTICE — VERSION CONTROL YOUR DESIGN.MD</div>
+        <div class="do-this">
+          <div class="do-label"><i class="ph ph-check-circle"></i> DO THIS</div>
+          <p>Version-control DESIGN.MD trong git. Khi design thay đổi, commit với message có ý nghĩa: <em>"Update primary color from #1a1a2e to #0f0f23 — tested better contrast."</em> Điều này đóng Gap 5 (version control) trong Grand Masterplan của bạn.</p>
+        </div>
+        <div class="avoid-this">
+          <div class="avoid-label"><i class="ph ph-x-circle"></i> AVOID THIS</div>
+          <p>Đừng viết DESIGN.MD từ đầu. Compile từ Level 2 outputs: tokens (2.1) + component specs (2.2) + audit rules (2.3). File gần như tự viết chính nó nếu bạn đã làm đúng Level 2.</p>
+        </div>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 3.1 exercise">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — BÀI TẬP</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_3_1_exercise.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Tổng hợp toàn bộ output Level 2 thành một DESIGN.MD hoàn chỉnh. Chín section, không section nào bỏ trống. Sau đó commit lên git. Test bằng cách paste vào Gemini và hỏi nó mô tả một trang — output phải khớp với design intent của bạn. Đây là khoảnh khắc bạn biết Level 2 của mình đã vững chưa.</p></details>
+      </div>
+
+      <div class="reflection" id="exercise-3-1">
+        <div class="reflection-label"><i class="ph ph-pencil-simple"></i> EXERCISE</div>
+        <h3>Compile Your DESIGN.MD</h3>
+        <p>Tổng hợp toàn bộ Level 2 outputs thành một DESIGN.MD hoàn chỉnh. Đây là nguồn sự thật duy nhất cho mọi tool AI từ đây trở đi.</p>
+        <ol>
+          <li><strong>Section 1-3:</strong> Copy từ token set của Session 2.1 — theme, colors, typography</li>
+          <li><strong>Section 4-6:</strong> Copy từ component specs của Session 2.2 — components, layout, depth</li>
+          <li><strong>Section 7:</strong> Copy từ deviation report của Session 2.3 — Do's và Don'ts</li>
+          <li><strong>Section 8:</strong> Viết breakpoints và responsive rules</li>
+          <li><strong>Section 9:</strong> Viết 3+ copy-paste prompts cho Antigravity, Stitch, Gemini</li>
+        </ol>
+
+        <textarea placeholder="Paste nội dung DESIGN.MD của bạn ở đây để review..." aria-label="DESIGN.MD workspace"></textarea>
+
+        <div class="success-criteria">
+          <div class="success-criteria-label">SUCCESS CRITERIA</div>
+          <label><input type="checkbox"> Tất cả 9 sections đều có nội dung thật (không có section trống)</label>
+          <label><input type="checkbox"> Section Color có hex values + semantic roles (không phải chỉ "primary: blue")</label>
+          <label><input type="checkbox"> Do's and Don'ts có 10+ rules (từ audit findings)</label>
+          <label><input type="checkbox"> Agent Prompt Guide có 3+ copy-paste prompts</label>
+          <label><input type="checkbox"> File được commit lên git với descriptive commit message</label>
+          <label><input type="checkbox"> Test: paste vào Gemini, hỏi mô tả một trang — output khớp design intent</label>
+        </div>
+      </div>
+
+      <div class="apply-challenge">
+        <div class="apply-challenge-label"><i class="ph ph-lightning"></i> APPLY CHALLENGE</div>
+        <p>Lấy DESIGN.MD của bạn và paste vào 3 AI tool khác nhau (Gemini, AI Studio, Antigravity). Hỏi mỗi tool tạo cùng một component — ví dụ: button primary. So sánh output. Nếu output khác nhau nhiều, Section 9 (Agent Prompt Guide) cần viết cụ thể hơn.</p>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- SESSION 3.2 -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="session-divider" id="session-3-2"></div>
+      <h2>3.2 Antigravity Prototyping</h2>
+
+      <div class="audio-guide" role="region" aria-label="Session 3.2 intro">
+        <div class="audio-label"><i class="ph ph-headphones"></i> SESSION 3.2</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_3_2.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Session 3.2. Antigravity Prototyping. Từ không có gì đến prototype chạy thật trong mười lăm phút.</p></details>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 3.2 attention hook">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — ATTENTION HOOK</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_3_2_hook.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Một designer mất ba ngày trong Figma. Mockup đẹp. Chuyển cho developer. Câu hỏi đầu tiên: "Hover state trông thế nào?" Câu hai: "Loading state ở đâu?" Câu ba: "Mobile thì layout ra sao?" Không có gì được document. Với Antigravity cộng DESIGN.MD, prototype chính là documentation. Hover state hoạt động. Loading state nhìn thấy được. Responsive mặc định. Prototype trả lời câu hỏi của developer trước khi họ hỏi.</p></details>
+      </div>
+
+      <div class="why">
+        <div class="why-label">ATTENTION HOOK — THE FIGMA HANDOFF GAP</div>
+        <p>A designer spent 3 days in Figma. Beautiful mockup. Handed to developers. First question: "What happens on hover?" Second: "What's the loading state?" Third: "How does this work on mobile?" None documented.</p>
+        <p>With Antigravity + DESIGN.MD, <strong>the prototype IS the documentation</strong> — hover states work, loading states are visible, responsive by default. The prototype answers developer questions before they ask.</p>
+      </div>
+
+      <h3>Core Concept: The 6-Step Vibecoding Flow</h3>
+      <div class="audio-guide" role="region" aria-label="Session 3.2 concept">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — KHÁI NIỆM CHÍNH</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_3_2_concept.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Sáu bước vibecoding. Bước một: load DESIGN.MD vào Antigravity context. Bước hai: describe bằng tiếng Việt, ví dụ "tao trang pricing với ba tier, dark header, testimonials." Bước ba: Antigravity tạo HTML cộng Tailwind cộng JS. Bước bốn: review theo Do's và Don'ts trong DESIGN.MD. Bước năm: iterate bằng ngôn ngữ tự nhiên. Bước sáu: validate lại bằng audit loop từ session 2.3. Bước quan trọng nhất là bước một. Nếu DESIGN.MD không load, bước hai trở đi sẽ drift.</p></details>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>Step 1: LOAD
+  → Paste DESIGN.MD vào Antigravity context
+  → Verify: AI acknowledges your design system
+
+Step 2: DESCRIBE (viết tiếng Việt)
+  → "Tao trang pricing với 3 tiers, dark header, testimonials"
+  → "Thêm dashboard với sidebar, charts, notification bell"
+  → "Xây settings page với toggle switches và form inputs"
+
+Step 3: GENERATE
+  → Antigravity sinh HTML + Tailwind CSS + Vanilla JS
+  → Output là real code, chạy được ngay trong browser
+
+Step 4: REVIEW
+  → Mở browser, test click/hover/mobile
+  → Check 5 random elements against DESIGN.MD Do's &amp; Don'ts
+
+Step 5: ITERATE (tự nhiên)
+  → "Đổi hero sang dark mode"
+  → "Thêm loading animation cho button"
+  → "Tăng font heading lên một bậc"
+
+Step 6: VALIDATE
+  → Chạy lại audit loop từ Session 2.3
+  → Target: 0 deviations từ DESIGN.MD tokens</pre>
+      </div>
+
+      <h3>Ví Dụ: HTML + Tailwind + Vanilla JS Output</h3>
+      <p>Đây là ví dụ Antigravity generate một pricing card theo DESIGN.MD:</p>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>&lt;!-- Pricing Card — generated by Antigravity following DESIGN.MD --&gt;
+&lt;div class="pricing-card border-2 border-black p-8 max-w-sm"&gt;
+  &lt;div class="tier-label text-xs font-bold uppercase tracking-widest text-slate-500 mb-2"&gt;
+    PRO
+  &lt;/div&gt;
+  &lt;div class="price font-heading text-5xl font-bold uppercase mb-1"&gt;
+    $49&lt;span class="text-xl font-normal"&gt;/mo&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;p class="text-slate-500 text-sm mb-6"&gt;Billed annually&lt;/p&gt;
+  &lt;ul class="space-y-3 mb-8"&gt;
+    &lt;li class="flex items-center gap-2 text-base"&gt;
+      &lt;i class="ph ph-check text-green-500"&gt;&lt;/i&gt; Unlimited projects
+    &lt;/li&gt;
+    &lt;li class="flex items-center gap-2 text-base"&gt;
+      &lt;i class="ph ph-check text-green-500"&gt;&lt;/i&gt; AI-powered design audit
+    &lt;/li&gt;
+    &lt;li class="flex items-center gap-2 text-base"&gt;
+      &lt;i class="ph ph-check text-green-500"&gt;&lt;/i&gt; Priority support
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;button
+    class="w-full bg-black text-white py-3 font-bold uppercase tracking-widest text-sm
+           hover:bg-white hover:text-black border-2 border-black transition-all duration-150"
+    onclick="handleUpgrade(this)"
+  &gt;
+    GET STARTED
+  &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+function handleUpgrade(btn) {
+  btn.textContent = 'PROCESSING...';
+  btn.disabled = true;
+  // Simulate async — replace with real API call
+  setTimeout(() =&gt; {
+    btn.textContent = 'GET STARTED';
+    btn.disabled = false;
+  }, 2000);
+}
+&lt;/script&gt;</pre>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label"><i class="ph ph-book-open"></i> CROSS-DOMAIN — JAZZ (STRUCTURED IMPROVISATION)</div>
+        <p>Jazz musicians don't play randomly — they improvise within structure: chord progressions, time signatures, key. The structure enables creative freedom without chaos. <strong>DESIGN.MD is your chord chart. Antigravity is the improvisation.</strong> You describe freely in Vietnamese — the structure keeps output consistent.</p>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 3.2 insight">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — CROSS-DOMAIN INSIGHT</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_3_2_insight.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Nhạc sĩ jazz không chơi ngẫu nhiên. Họ ứng tấu trong cấu trúc: chord progression, nhịp, tone. Cấu trúc tạo ra tự do sáng tạo mà không hỗn loạn. DESIGN.MD là bản nhạc của bạn. Antigravity là phần ứng tấu. Bạn mô tả tự do bằng tiếng Việt — cấu trúc giữ output nhất quán.</p></details>
+      </div>
+
+      <h3>So Sánh Công Cụ Prototyping</h3>
+      <table>
+        <tr><th>Công Cụ</th><th>Thời Gian Đến Interactive</th><th>Code Thật?</th><th>Test Được?</th><th>Handoff Friction</th></tr>
+        <tr><td>Figma</td><td>4-8 giờ</td><td>Không</td><td>Không (clickthrough)</td><td>Cao</td></tr>
+        <tr><td>Framer</td><td>2-4 giờ</td><td>Một phần</td><td>Giới hạn</td><td>Trung bình</td></tr>
+        <tr><td>HTML/CSS thủ công</td><td>8-16 giờ</td><td>Có</td><td>Có</td><td>Thấp</td></tr>
+        <tr><td><strong>Antigravity + DESIGN.MD</strong></td><td><strong>15-30 phút</strong></td><td><strong>Có</strong></td><td><strong>Có</strong></td><td><strong>Zero</strong></td></tr>
+      </table>
+
+      <div class="best-practice">
+        <div class="best-practice-label"><i class="ph ph-check-circle"></i> BEST PRACTICE — CALIBRATE FIRST, SCALE LATER</div>
+        <div class="do-this">
+          <div class="do-label"><i class="ph ph-check-circle"></i> DO THIS</div>
+          <p>Bắt đầu với một trang duy nhất. Validate DESIGN.MD compliance trên một trang trước khi mở rộng. Trang đầu tiên là bài calibration — nếu khớp vision, tiếp tục. Nếu không, fix DESIGN.MD, không phải prompt.</p>
+        </div>
+        <div class="avoid-this">
+          <div class="avoid-label"><i class="ph ph-x-circle"></i> AVOID THIS</div>
+          <p>Đừng iterate bằng cách tweak prompt. Nếu output drift khỏi design system, vấn đề nằm ở DESIGN.MD (quá mơ hồ, thiếu constraints) — không phải task prompt. Fix gốc rễ, không phải triệu chứng.</p>
+        </div>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 3.2 exercise">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — BÀI TẬP</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_3_2_exercise.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Load DESIGN.MD vào Antigravity. Describe một trang bằng tiếng Việt. Generate. Kiểm tra năm element ngẫu nhiên với DESIGN.MD tokens. Sau đó thực hiện một iteration nhỏ và verify consistency được giữ nguyên. Đây là bài test thật sự cho DESIGN.MD của bạn.</p></details>
+      </div>
+
+      <div class="reflection" id="exercise-3-2">
+        <div class="reflection-label"><i class="ph ph-pencil-simple"></i> EXERCISE</div>
+        <h3>Build Your First Prototype Page</h3>
+        <p>Generate một trang duy nhất bằng Antigravity với DESIGN.MD đã load:</p>
+        <ol>
+          <li><strong>Load DESIGN.MD</strong> — paste vào Antigravity context, verify AI acknowledge</li>
+          <li><strong>Describe bằng tiếng Việt</strong> — ví dụ: "tao trang landing với hero, feature grid 3 cột, và CTA section"</li>
+          <li><strong>Generate</strong> — Antigravity produces HTML + Tailwind + JS</li>
+          <li><strong>Test in browser</strong> — click, hover, resize to 375px</li>
+          <li><strong>Spot-check 5 elements</strong> — verify against DESIGN.MD tokens</li>
+          <li><strong>One iteration</strong> — "đổi hero background sang đen" — verify consistency maintained</li>
+        </ol>
+
+        <textarea placeholder="Ghi chú về quá trình generate và những điều cần điều chỉnh trong DESIGN.MD..." aria-label="Prototype build workspace"></textarea>
+
+        <div class="success-criteria">
+          <div class="success-criteria-label">SUCCESS CRITERIA</div>
+          <label><input type="checkbox"> DESIGN.MD được load vào Antigravity context</label>
+          <label><input type="checkbox"> Trang được describe bằng tiếng Việt (ngôn ngữ tự nhiên của Lam)</label>
+          <label><input type="checkbox"> Generated page mở trong browser và có interactive (hover, click)</label>
+          <label><input type="checkbox"> 5 element ngẫu nhiên spot-check với DESIGN.MD tokens — tất cả match</label>
+          <label><input type="checkbox"> Một iteration được apply — consistency được giữ nguyên sau thay đổi</label>
+        </div>
+      </div>
+
+      <div class="apply-challenge">
+        <div class="apply-challenge-label"><i class="ph ph-lightning"></i> APPLY CHALLENGE</div>
+        <p>Generate trang đối thủ cạnh tranh của bạn (describe structure của họ, không phải visual) bằng Antigravity + DESIGN.MD. Kết quả: cùng information architecture, visual identity của bạn. Đây là cách "học từ đối thủ mà không copy đối thủ."</p>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- SESSION 3.3 -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="session-divider" id="session-3-3"></div>
+      <h2>3.3 Multi-Page System với Stitch</h2>
+
+      <div class="audio-guide" role="region" aria-label="Session 3.3 intro">
+        <div class="audio-label"><i class="ph ph-headphones"></i> SESSION 3.3</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_3_3.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Session 3.3. Multi-Page System với Stitch. Ba trang liên kết với navigation, state, và data nhất quán.</p></details>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 3.3 attention hook">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — ATTENTION HOOK</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_3_3_hook.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Mọi AI demo đều cho thấy tạo một trang. Ấn tượng. Nhưng product không phải một trang. Ngay khi bạn cần trang thứ hai, consistency vỡ: header height khác, sidebar width khác, card style khác. Multi-page consistency khó hơn single-page mười lần. Một designer dùng Stitch cộng DESIGN.MD ship prototype năm trang trong hai giờ và pass QA ngay lần review đầu tiên vì mọi trang đều đọc cùng một design system.</p></details>
+      </div>
+
+      <div class="why">
+        <div class="why-label">ATTENTION HOOK — THE SINGLE-PAGE TRAP</div>
+        <p>Every AI demo shows generating ONE page. Impressive. But products aren't one page. The moment you need page 2, consistency breaks: different header height, different sidebar width, different card style.</p>
+        <p><strong>Multi-page consistency is 10x harder than single-page generation.</strong> A designer using Stitch + DESIGN.MD shipped a 5-page prototype in 2 hours that passed QA on first review — because every page read the same design system.</p>
+      </div>
+
+      <h3>Core Concept: Page System Architecture</h3>
+      <div class="audio-guide" role="region" aria-label="Session 3.3 concept">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — KHÁI NIỆM CHÍNH</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_3_3_concept.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Kiến trúc rất đơn giản. DESIGN.MD làm gốc. Từ đó generate shared.css trước tiên. Rồi mỗi trang import shared.css. Shared CSS là layer enforcer: tất cả trang kế thừa cùng tokens. Không phải bằng cách lặp lại prompt, mà bằng kiến trúc. Generate shared.css trước, rồi trang một, validate, rồi trang hai và ba. Không generate song song. Sequential.</p></details>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>DESIGN.MD (shared source of truth)
+    |
+    +-- shared.css (generated from DESIGN.MD tokens)
+    |       → All color variables
+    |       → All typography rules
+    |       → All spacing scale
+    |       → All component classes
+    |
+    +-- index.html    (Landing: hero, features, CTA)
+    |   └── &lt;link rel="stylesheet" href="shared.css"&gt;
+    |
+    +-- dashboard.html  (Data: charts, tables, stats)
+    |   └── &lt;link rel="stylesheet" href="shared.css"&gt;
+    |
+    +-- settings.html   (Forms: toggles, inputs, profile)
+        └── &lt;link rel="stylesheet" href="shared.css"&gt;
+
+SHARED COMPONENTS (đặt trong shared.css hoặc components/)
+    +-- Navigation (identical on all pages)
+    +-- Footer (identical on all pages)
+    +-- Notification patterns (consistent behavior)</pre>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label"><i class="ph ph-book-open"></i> KEY INSIGHT — ARCHITECTURE BEFORE CONTENT</div>
+        <p>Generate <code>shared.css</code> từ DESIGN.MD TRƯỚC TIÊN. Rồi mọi trang import nó. Đây là architectural decision — shared stylesheet enforce consistency về mặt structural, không phải bằng cách lặp prompt. Thay đổi một token trong shared.css = tất cả trang cập nhật ngay.</p>
+      </div>
+
+      <h3>Build Order — Sequential, Not Parallel</h3>
+      <table>
+        <tr><th>Bước</th><th>Action</th><th>Validate Trước Khi Tiếp</th></tr>
+        <tr><td>1</td><td>Generate <code>shared.css</code> từ DESIGN.MD</td><td>Kiểm tra tất cả tokens có mặt và đúng giá trị</td></tr>
+        <tr><td>2</td><td>Build navigation shell (header + nav links)</td><td>Click mọi link — không cần content, chỉ cần nav hoạt động</td></tr>
+        <tr><td>3</td><td>Trang 1 (Landing) — full content</td><td>Audit: 0 deviation từ tokens. Mobile test.</td></tr>
+        <tr><td>4</td><td>Trang 2 (Dashboard) — import shared.css</td><td>So sánh header/footer với Trang 1 — identical?</td></tr>
+        <tr><td>5</td><td>Trang 3 (Settings) — import shared.css</td><td>Full cross-page audit: 0 inconsistencies</td></tr>
+      </table>
+
+      <div class="audio-guide" role="region" aria-label="Session 3.3 insight">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — CROSS-DOMAIN INSIGHT</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_3_3_insight.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Nhà xuất bản sách dùng style guide: một document quản lý mọi trang — margins, fonts, heading styles, caption rules. Mỗi author chương đều theo cùng một guide. shared.css của bạn là style guide đó. Mỗi AI tạo ra một trang đều follow nó tự động.</p></details>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label"><i class="ph ph-book-open"></i> CROSS-DOMAIN — PUBLISHING (STYLE GUIDES)</div>
+        <p>Book publishers use style guides: one document governing every page — margins, fonts, heading styles, caption rules. Every chapter author follows the same guide. <strong>Your <code>shared.css</code> is the style guide. Every page "author" (AI) follows it automatically.</strong></p>
+      </div>
+
+      <h3>So Sánh Approach</h3>
+      <table>
+        <tr><th>Approach</th><th>Trang/Giờ</th><th>Cross-Page Consistency</th><th>Navigation Hoạt Động?</th><th>Production Path</th></tr>
+        <tr><td>Figma prototyping</td><td>1-2</td><td>Manual enforcement</td><td>Simulated</td><td>Dài</td></tr>
+        <tr><td>Per-page Antigravity</td><td>2-3</td><td>Prompt-dependent</td><td>Manual linking</td><td>Trung bình</td></tr>
+        <tr><td><strong>Stitch + shared.css</strong></td><td><strong>3-5</strong></td><td><strong>Structural</strong></td><td><strong>Real</strong></td><td><strong>Ngắn</strong></td></tr>
+      </table>
+
+      <div class="best-practice">
+        <div class="best-practice-label"><i class="ph ph-check-circle"></i> BEST PRACTICE — STRUCTURE FIRST, CONTENT SECOND</div>
+        <div class="do-this">
+          <div class="do-label"><i class="ph ph-check-circle"></i> DO THIS</div>
+          <p>Generate shared.css trước, rồi từng trang một. Test navigation giữa các trang TRƯỚC KHI thêm content. Structure first, content second. Một navigation shell hoạt động tốt là nền tảng cho mọi thứ còn lại.</p>
+        </div>
+        <div class="avoid-this">
+          <div class="avoid-label"><i class="ph ph-x-circle"></i> AVOID THIS</div>
+          <p>Đừng generate tất cả trang cùng lúc. Build theo thứ tự: shared CSS → navigation shell → trang 1 (validate) → trang 2-3. Generate song song tạo drift không thể track được.</p>
+        </div>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 3.3 exercise">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — BÀI TẬP</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_3_3_exercise.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Build prototype ba trang với shared navigation. Generate shared.css từ DESIGN.MD trước. Sau đó ba trang, mỗi trang đều import shared.css. Verify navigation click được giữa tất cả trang. Cuối cùng chạy full audit cross-page: zero inconsistencies.</p></details>
+      </div>
+
+      <div class="reflection" id="exercise-3-3">
+        <div class="reflection-label"><i class="ph ph-pencil-simple"></i> EXERCISE</div>
+        <h3>Build a 3-Page Prototype</h3>
+        <p>Tạo 3 trang liên kết với shared navigation theo đúng thứ tự:</p>
+        <ol>
+          <li><strong>Generate shared.css</strong> — từ DESIGN.MD tokens (Stitch hoặc Antigravity)</li>
+          <li><strong>Build navigation shell</strong> — header + nav links + footer (import shared.css)</li>
+          <li><strong>Trang 1: Landing</strong> — hero, features, CTA. Audit. Fix.</li>
+          <li><strong>Trang 2: Dashboard</strong> — sidebar, data widgets, charts. So sánh với Trang 1.</li>
+          <li><strong>Trang 3: Settings</strong> — forms, toggles, profile section</li>
+          <li><strong>Cross-page audit</strong> — header/footer identical? Card styles consistent? 0 deviations?</li>
+        </ol>
+
+        <textarea placeholder="Ghi chú build process và kết quả cross-page audit..." aria-label="Multi-page system workspace"></textarea>
+
+        <div class="success-criteria">
+          <div class="success-criteria-label">SUCCESS CRITERIA</div>
+          <label><input type="checkbox"> shared.css được generate từ DESIGN.MD tokens</label>
+          <label><input type="checkbox"> 3 trang được generate, mỗi trang import shared.css</label>
+          <label><input type="checkbox"> Navigation hoạt động giữa tất cả 3 trang (clickable links)</label>
+          <label><input type="checkbox"> Header/footer identical trên tất cả trang (spot-check)</label>
+          <label><input type="checkbox"> Một trang được iterate ("thêm chart vào dashboard") — shared styles preserved</label>
+          <label><input type="checkbox"> Full audit (Session 2.3 method) pass với 0 cross-page inconsistencies</label>
+        </div>
+      </div>
+
+      <div class="apply-challenge">
+        <div class="apply-challenge-label"><i class="ph ph-lightning"></i> APPLY CHALLENGE</div>
+        <p>Thêm trang thứ 4 vào prototype của bạn — một trang hoàn toàn mới, loại khác (ví dụ: trang onboarding, hoặc trang profile). Generate bằng Stitch + shared.css đã có. Verify: trang mới nhất quán 100% với 3 trang trước mà không cần thêm prompt context.</p>
+      </div>
+
+      <!-- Level 3 closing narration -->
+      <div class="audio-guide" role="region" aria-label="Level 3 closing narration">
+        <div class="audio-label"><i class="ph ph-headphones"></i> LEVEL 3 — CLOSING</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/level_3_closing.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Level 3 hoàn thành. Bạn đã biến token set và component specs thành một DESIGN.MD hoạt động thật sự. Đã tạo prototype tương tác bằng Antigravity. Đã xây hệ thống nhiều trang nhất quán với Stitch và shared.css. Khoảng cách giữa thiết kế và browser đã đóng lại. Level 4 tiếp theo: đưa tất cả vào production pipeline tự động.</p></details>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- QUIZ -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="session-divider" id="quiz"></div>
+      <div class="quiz">
+        <div class="quiz-title"><i class="ph ph-exam"></i> LEVEL 3 SELF-CHECK QUIZ</div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q1: Tại sao DESIGN.MD hiệu quả hơn mô tả bằng lời cho AI consistency?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) Prompt dài hơn thì tốt hơn</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) Giá trị cụ thể (hex, px, weights) loại bỏ interpretation variance</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) AI thích đọc Markdown hơn</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) DESIGN.MD ngắn hơn nên token hiệu quả hơn</li>
+          </ul>
+          <div class="quiz-answer">B — "Clean minimal warm" có thể có nghĩa là 1000 thiết kế khác nhau. Hex #0f0f23, font-size 56px, spacing 8pt grid chỉ có một nghĩa duy nhất. Giá trị cụ thể = zero interpretation variance.</div>
+        </div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q2: Antigravity output drift khỏi design system. Nên fix cái gì trước?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) Task prompt — mô tả chi tiết hơn</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) DESIGN.MD — quá mơ hồ hoặc thiếu constraints</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) Chuyển sang AI model khác</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) Generate lại từ đầu</li>
+          </ul>
+          <div class="quiz-answer">B — Nếu output drift, root cause là DESIGN.MD thiếu hoặc mơ hồ. Fix gốc rễ: thêm constraints, cụ thể hóa values. Prompt-tweaking chỉ là patch tạm thời.</div>
+        </div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q3: Tại sao generate shared.css TRƯỚC khi generate từng trang?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) Nhanh hơn</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) Structural enforcement — tất cả trang kế thừa cùng tokens</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) Dễ debug hơn</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) Stitch yêu cầu shared.css trước</li>
+          </ul>
+          <div class="quiz-answer">B — shared.css là layer enforce tất cả trang theo cùng một design system về mặt structural. Không cần repeat prompt context cho mỗi trang — architecture làm việc thay bạn.</div>
+        </div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q4: Section 9 của DESIGN.MD là gì và tại sao nó tồn tại?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) Changelog — lịch sử thay đổi design system</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) Agent Prompt Guide — pre-written prompts cho AI tools để interpret đúng</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) Credits — ai đã đóng góp vào design system</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) Appendix — phần bổ sung không bắt buộc</li>
+          </ul>
+          <div class="quiz-answer">B — Section 9 là cầu nối giữa design specification và AI execution. Pre-written prompts cho phép bất kỳ tool nào (Antigravity, Stitch, Gemini) follow đúng design system mà không cần bạn giải thích lại mỗi lần.</div>
+        </div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q5: Prototype 3 trang có card shadows không nhất quán. Nguyên nhân khả năng cao nhất?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) Bug trong Antigravity/Stitch</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) Shadow tokens bị thiếu trong shared.css hoặc DESIGN.MD Section 6</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) Browser rendering khác nhau</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) Cần regenerate tất cả trang</li>
+          </ul>
+          <div class="quiz-answer">B — Inconsistent shadows = shadow tokens chưa được define trong DESIGN.MD Section 6 (Depth &amp; Elevation) hoặc chưa được export vào shared.css. Fix: define shadow-sm, shadow-md, shadow-lg trong DESIGN.MD và regenerate shared.css.</div>
+        </div>
+      </div>
+
+      <!-- Bottom Nav -->
+      <div class="bottom-nav">
+        <a href="level-2-design-system.html"><i class="ph ph-arrow-left"></i> Level 2: Design System</a>
+        <a href="level-4-production.html">Level 4: Production <i class="ph ph-arrow-right"></i></a>
+      </div>
+
+      <div class="footer">
+        <div class="footer-brand">EaseStart Workshop</div>
+        <p>AI-Powered Product Design &middot; Level 3 of 4</p>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function copyCode(btn) {
+      const pre = btn.parentElement.querySelector('pre');
+      navigator.clipboard.writeText(pre.textContent.trim()).then(() => {
+        btn.textContent = 'COPIED';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'COPY'; btn.classList.remove('copied'); }, 2000);
+      }).catch(() => {
+        // Fallback for browsers without clipboard API
+        const ta = document.createElement('textarea');
+        ta.value = pre.textContent.trim();
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = 'COPIED';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'COPY'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+
+    function selectQuiz(li) {
+      const item = li.closest('.quiz-item');
+      const correctAnswer = parseInt(item.dataset.answer);
+      const selectedOption = parseInt(li.dataset.option);
+      const options = item.querySelectorAll('.quiz-options li');
+      const answer = item.querySelector('.quiz-answer');
+      options.forEach(o => { o.classList.remove('selected', 'correct', 'incorrect'); });
+      if (selectedOption === correctAnswer) {
+        li.classList.add('correct');
+      } else {
+        li.classList.add('incorrect');
+        options[correctAnswer].classList.add('correct');
+      }
+      answer.classList.add('revealed');
+    }
+  </script>
+</body>
+</html>

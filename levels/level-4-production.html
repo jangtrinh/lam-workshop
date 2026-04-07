@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Level 4: Production — Ship &amp; Iterate. Stitch Workflows, Design QA Loop, Capstone Sprint.">
+  <title>Level 4: Production — Workshop AI Product Design</title>
+  <link rel="stylesheet" href="../shared.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <div class="sidebar-brand">
+        <h2>Workshop</h2>
+        <p>AI Product Design</p>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Modules</div>
+        <a href="../index.html" class="nav-link"><i class="ph ph-arrow-left"></i> Hub</a>
+        <a href="level-1-foundation.html" class="nav-link"><span class="nav-stage-num">1</span> Foundation</a>
+        <a href="level-2-design-system.html" class="nav-link"><span class="nav-stage-num">2</span> Design System</a>
+        <a href="level-3-prototype.html" class="nav-link"><span class="nav-stage-num">3</span> Prototype</a>
+        <a href="level-4-production.html" class="nav-link active"><span class="nav-stage-num">4</span> Production</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Sessions</div>
+        <a href="#session-4-1" class="nav-link">4.1 Stitch Workflows</a>
+        <a href="#session-4-2" class="nav-link">4.2 Design QA Loop</a>
+        <a href="#session-4-3" class="nav-link">4.3 Capstone Sprint</a>
+        <a href="#quiz" class="nav-link">Self-Check Quiz</a>
+      </div>
+    </nav>
+
+    <main class="main">
+      <h1>Production</h1>
+      <p class="subtitle">Level 4 &middot; Ship &amp; Iterate — pipeline tự động từ DESIGN.MD đến sản phẩm thật.</p>
+
+      <div class="audio-guide" role="region" aria-label="Level 4 intro narration">
+        <div class="audio-label"><i class="ph ph-headphones"></i> LEVEL 4 — INTRO</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/level_4_intro.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Chào mừng đến Level 4 — Production. Đây là level cuối cùng. Bạn đã có context architecture, design system, và prototype. Bây giờ là lúc tự động hóa toàn bộ pipeline: Stitch workflow chạy không cần tay, QA loop hội tụ về chất lượng, và capstone sprint chứng minh bạn có thể chạy toàn bộ từ idea đến prototype trong một buổi. Level này đóng tất cả bảy gap trong Grand Masterplan của bạn.</p></details>
+      </div>
+
+      <div class="objectives">
+        <div class="objectives-title"><i class="ph ph-target"></i> LEARNING OBJECTIVES</div>
+        <ol>
+          <li>Xây Stitch workflow tự động hóa pipeline từ DESIGN.MD đến output — zero copy-paste</li>
+          <li>Chạy Design QA loop hội tụ: mỗi iteration ít deviation hơn iteration trước</li>
+          <li>Execute toàn bộ pipeline từ idea đến production-ready prototype trong dưới 3 giờ</li>
+        </ol>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- SESSION 4.1 -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="session-divider" id="session-4-1"></div>
+      <h2>4.1 Stitch Workflows &amp; Automation</h2>
+
+      <div class="audio-guide" role="region" aria-label="Session 4.1 intro">
+        <div class="audio-label"><i class="ph ph-headphones"></i> SESSION 4.1</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_4_1.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Session 4.1. Stitch Workflows và Automation. Pipeline không tay — từ DESIGN.MD đến production.</p></details>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 4.1 attention hook">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — ATTENTION HOOK</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_4_1_hook.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Một designer track workflow hàng ngày của họ: mở Gemini, paste context, chạy prompt, copy output, paste vào VS Code, sửa formatting thủ công, lặp lại. Bốn mươi bảy thao tác copy-paste mỗi ngày. Mỗi thao tác là một cơ hội cho lỗi, drift, và thời gian lãng phí. Sau khi xây Stitch workflow: DESIGN.MD load tự động, prompt được template hóa, output đi thẳng đến đúng file. Copy-paste operations: zero.</p></details>
+      </div>
+
+      <div class="why">
+        <div class="why-label">ATTENTION HOOK — THE COPY-PASTE DEATH SPIRAL</div>
+        <p>A designer tracked their daily workflow: open Gemini, paste context, run prompt, copy output, paste into VS Code, manually fix formatting, repeat. <strong>47 copy-paste operations per day.</strong> Each one a chance for error, drift, and wasted time.</p>
+        <p>After building a Stitch workflow: DESIGN.MD loads automatically, prompts are templated, output goes directly to the right file. Copy-paste operations: <strong>zero.</strong> This closes Gap 5 (manual copy-paste) completely.</p>
+      </div>
+
+      <h3>Core Concept: The Automated Design Pipeline</h3>
+      <div class="audio-guide" role="region" aria-label="Session 4.1 concept">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — KHÁI NIỆM CHÍNH</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_4_1_concept.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Pipeline tự động gồm năm station. Trigger khi cần trang mới hoặc component mới. Stitch workflow auto-load DESIGN.MD và token set. Auto-select template phù hợp với loại trang. Generate HTML và Tailwind theo tokens. Validate output chống lại Do's và Don'ts. Output lưu thẳng vào đúng thư mục. Git commit. Không có con người làm data transport giữa các station. Đó là khác biệt căn bản.</p></details>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>TRIGGER (trang mới, design update, component request)
+    |
+    v
+STITCH WORKFLOW
+├── Auto-load:   DESIGN.MD + token set (không paste thủ công)
+├── Auto-select: page template / component template phù hợp
+├── Generate:    HTML + Tailwind matching tokens exactly
+├── Validate:    audit tự động chống Do's &amp; Don'ts Section 7
+└── Output:      file lưu đến đúng thư mục
+    |
+    v
+GIT COMMIT
+└── Version-controlled, diffable, rollback-able
+
+---
+
+VÍ DỤ STITCH WORKFLOW CONFIG:
+{
+  "name": "new-landing-page",
+  "context": "./DESIGN.MD",
+  "template": "templates/landing.md",
+  "output_dir": "./pages/",
+  "validation": {
+    "check_tokens": true,
+    "check_donts": true,
+    "report_format": "markdown"
+  },
+  "post_run": "git add . &amp;&amp; git commit -m 'feat: add {{page_name}} landing page'"
+}</pre>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label"><i class="ph ph-book-open"></i> CROSS-DOMAIN — MANUFACTURING (ASSEMBLY LINES)</div>
+        <p>Henry Ford's innovation wasn't the car — it was the assembly line. Each station does one thing, passes to the next. <strong>Your design pipeline is an assembly line:</strong> context station → generation station → validation station → output station. No human carries parts between stations.</p>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 4.1 insight">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — CROSS-DOMAIN INSIGHT</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_4_1_insight.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Đổi mới của Henry Ford không phải là chiếc xe. Đó là dây chuyền lắp ráp. Mỗi station làm một việc rồi chuyển sang station tiếp theo. Pipeline thiết kế của bạn là dây chuyền lắp ráp: context station, generation station, validation station, output station. Không có con người vận chuyển linh kiện giữa các station.</p></details>
+      </div>
+
+      <h3>So Sánh Workflow</h3>
+      <table>
+        <tr><th>Workflow</th><th>Bước Thủ Công</th><th>Error Rate</th><th>Reproducible?</th><th>Thời Gian/Trang</th></tr>
+        <tr><td>Chat + copy-paste</td><td>8-12</td><td>Cao</td><td>Không</td><td>30-45 phút</td></tr>
+        <tr><td>Saved prompts + thủ công</td><td>4-6</td><td>Trung bình</td><td>Một phần</td><td>15-20 phút</td></tr>
+        <tr><td><strong>Stitch automated</strong></td><td><strong>1 (trigger)</strong></td><td><strong>Thấp</strong></td><td><strong>Có</strong></td><td><strong>5-10 phút</strong></td></tr>
+      </table>
+
+      <div class="best-practice">
+        <div class="best-practice-label"><i class="ph ph-check-circle"></i> BEST PRACTICE — BUILD INCREMENTALLY</div>
+        <div class="do-this">
+          <div class="do-label"><i class="ph ph-check-circle"></i> DO THIS</div>
+          <p>Xây workflow theo từng bước. Bắt đầu với một workflow (ví dụ: "new landing page"). Validate nó hoạt động. Rồi thêm (component page, dashboard page). Mỗi workflow reference DESIGN.MD làm constraint source.</p>
+        </div>
+        <div class="avoid-this">
+          <div class="avoid-label"><i class="ph ph-x-circle"></i> AVOID THIS</div>
+          <p>Đừng over-automate trước khi validate manual process. Nếu bạn không thể mô tả các bước thủ công, bạn không thể automate chúng. Sessions 3.1-3.3 đã validate manual steps rồi — bây giờ mới automate.</p>
+        </div>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 4.1 exercise">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — BÀI TẬP</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_4_1_exercise.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Tạo Stitch workflow đầu tiên của bạn. Workflow này load DESIGN.MD tự động và generate một trang hoàn chỉnh từ một trigger duy nhất. Chạy nó ba lần và verify output nhất quán. Đây là reproducibility test: nếu ba lần cho kết quả khác nhau, workflow cần được tighten.</p></details>
+      </div>
+
+      <div class="reflection" id="exercise-4-1">
+        <div class="reflection-label"><i class="ph ph-pencil-simple"></i> EXERCISE</div>
+        <h3>Build Your First Stitch Workflow</h3>
+        <p>Tạo Stitch workflow tự động generate một trang từ DESIGN.MD:</p>
+        <ol>
+          <li><strong>Define workflow</strong> — tên, context source (DESIGN.MD), output directory, validation rules</li>
+          <li><strong>Create template</strong> — page template với placeholders cho page name, sections</li>
+          <li><strong>Test trigger</strong> — chạy workflow, verify output đúng thư mục và đúng tokens</li>
+          <li><strong>Run 3 times</strong> — output phải nhất quán (reproducibility check)</li>
+          <li><strong>Document workflow</strong> — mô tả trong 10 dòng hoặc ít hơn</li>
+        </ol>
+
+        <textarea placeholder="Mô tả workflow config và kết quả test reproducibility..." aria-label="Stitch workflow workspace"></textarea>
+
+        <div class="success-criteria">
+          <div class="success-criteria-label">SUCCESS CRITERIA</div>
+          <label><input type="checkbox"> Workflow load DESIGN.MD không cần paste thủ công</label>
+          <label><input type="checkbox"> Một trigger tạo ra một trang hoàn chỉnh</label>
+          <label><input type="checkbox"> Output pass consistency audit (Session 2.3 method)</label>
+          <label><input type="checkbox"> Workflow được document trong 10 dòng hoặc ít hơn</label>
+          <label><input type="checkbox"> Chạy 3 lần — output nhất quán mỗi lần (reproducibility confirmed)</label>
+        </div>
+      </div>
+
+      <div class="apply-challenge">
+        <div class="apply-challenge-label"><i class="ph ph-lightning"></i> APPLY CHALLENGE</div>
+        <p>Xây một workflow thứ hai cho loại output khác — ví dụ: "generate component spec" thay vì "generate page." So sánh hai workflow: pattern nào lặp lại? Extract phần lặp lại thành shared template. Đây là DRY principle cho automation.</p>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- SESSION 4.2 -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="session-divider" id="session-4-2"></div>
+      <h2>4.2 Design QA Loop — Systematic Iteration</h2>
+
+      <div class="audio-guide" role="region" aria-label="Session 4.2 intro">
+        <div class="audio-label"><i class="ph ph-headphones"></i> SESSION 4.2</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_4_2.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Session 4.2. Design QA Loop. Iteration có hệ thống — không bao giờ lạc hướng.</p></details>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 4.2 attention hook">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — ATTENTION HOOK</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_4_2_hook.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Iteration nhiều hơn đáng lẽ phải cải thiện chất lượng. Nhưng không có hệ thống, mỗi iteration tạo ra inconsistency mới trong khi fix cái cũ. Một designer iterate dashboard tám lần. Version cuối có mười hai inconsistency mới không tồn tại ở version ba. Iteration không có cấu trúc là random walk — bạn di chuyển nhưng không tiến bộ. Session này cho Lam chiến lược iteration còn thiếu trong Grand Masterplan: Gap 7.</p></details>
+      </div>
+
+      <div class="why">
+        <div class="why-label">ATTENTION HOOK — THE ITERATION PARADOX</div>
+        <p>More iterations should improve quality. But without a system, each iteration <em>introduces</em> new inconsistencies while fixing old ones. A designer iterated a dashboard 8 times. Final version had 12 new inconsistencies that didn't exist in version 3.</p>
+        <p><strong>Unstructured iteration is a random walk — you move but don't progress.</strong> Structured iteration (generate → audit → fix → re-audit) converges to quality. This session gives Lam the missing iteration strategy: Gap 7 in the Grand Masterplan.</p>
+      </div>
+
+      <h3>Core Concept: The Convergent Iteration Loop</h3>
+      <div class="audio-guide" role="region" aria-label="Session 4.2 concept">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — KHÁI NIỆM CHÍNH</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_4_2_concept.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Loop hội tụ gồm bốn bước lặp lại. Audit so sánh version hiện tại với DESIGN.MD tokens. Deviation report phân loại vấn đề: Critical là visual breakage hoặc wrong tokens phải fix ngay. Major là spacing hay color lệch hơn hai pixel, fix trong iteration này. Minor là sub-pixel hay edge case, log để sau. Fix targeted, không generate lại từ đầu. Re-audit để verify fix và check regression. Lặp lại cho đến khi chỉ còn Minor. Quy tắc vàng: deviation count phải giảm mỗi version.</p></details>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>VERSION N
+    |
+    v
+AUDIT (Session 2.3 method: compare to DESIGN.MD tokens)
+    |
+    v
+DEVIATION REPORT — phân loại 3 tiers:
+├── CRITICAL  (visual breakage, wrong tokens)  → Fix ngay, trước mọi thứ
+├── MAJOR     (spacing/color lệch 2+px)        → Fix trong iteration này
+└── MINOR     (sub-pixel, edge cases)           → Log, fix iteration sau
+    |
+    v
+FIX — targeted, không phải wholesale re-generation
+│   ✓ Fix đúng element có deviation
+│   ✓ Không đụng đến element đã đúng
+│   ✗ Đừng "cải tiến" thứ chưa được audit yêu cầu
+    |
+    v
+RE-AUDIT — verify fixes + check for regressions
+    |
+    v
+VERSION N+1
+└── Fewer deviations than N (convergent)
+    └── Rule: deviation count MUST decrease each version</pre>
+      </div>
+
+      <h3>Deviation Severity Framework</h3>
+      <table>
+        <tr><th>Severity</th><th>Ví Dụ</th><th>Action</th><th>Timeline</th></tr>
+        <tr><td><strong>Critical</strong></td><td>Wrong color token (#ff0000 thay vì --accent), broken layout, missing required component</td><td>Fix ngay trước khi tiếp tục</td><td>Iteration hiện tại</td></tr>
+        <tr><td><strong>Major</strong></td><td>Spacing 14px thay vì 16px, font-weight 500 thay vì 600, shadow sai tier</td><td>Fix trong iteration này</td><td>Iteration hiện tại</td></tr>
+        <tr><td><strong>Minor</strong></td><td>Sub-pixel rounding, edge case trên breakpoint hiếm gặp, micro-animation timing</td><td>Log trong deviation report</td><td>Iteration tiếp theo</td></tr>
+      </table>
+
+      <div class="insight">
+        <div class="insight-label"><i class="ph ph-book-open"></i> KEY RULE — NEVER RE-GENERATE FROM SCRATCH</div>
+        <p>Đừng bao giờ re-generate từ đầu để fix deviations. Re-generation reset tất cả progress — version mới sẽ có random deviations hoàn toàn khác. Fix targeted deviations. Re-generation là đầu hàng, không phải giải pháp.</p>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 4.2 insight">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — CROSS-DOMAIN INSIGHT</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_4_2_insight.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Sales team không contact prospect ngẫu nhiên. Họ di chuyển leads qua các stage: qualify, demo, proposal, close. Mỗi stage có tiêu chí trước khi advance. Iteration của bạn là pipeline: mỗi version phải đáp ứng audit criteria trước khi advance sang version tiếp theo. Không skip stage.</p></details>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label"><i class="ph ph-book-open"></i> CROSS-DOMAIN — SALES (PIPELINE STAGES)</div>
+        <p>Sales teams move leads through defined stages: qualify → demo → proposal → close. Each stage has criteria before advancing. <strong>Your iteration is a pipeline: each version must meet audit criteria before advancing.</strong> No skipping stages. No "it looks good enough."</p>
+      </div>
+
+      <h3>So Sánh Chiến Lược Iteration</h3>
+      <table>
+        <tr><th>Chiến Lược</th><th>Hội Tụ?</th><th>Regression Risk</th><th>Thời Gian/Iteration</th><th>Predictable?</th></tr>
+        <tr><td>"Make it better" (mơ hồ)</td><td>Không</td><td>Cao</td><td>30+ phút</td><td>Không</td></tr>
+        <tr><td>Re-generate từ đầu</td><td>Không</td><td>Total reset</td><td>15 phút</td><td>Không</td></tr>
+        <tr><td>Fix một thứ mỗi lần</td><td>Chậm</td><td>Thấp</td><td>10 phút</td><td>Có</td></tr>
+        <tr><td><strong>Audit-fix-reaudit loop</strong></td><td><strong>Có</strong></td><td><strong>Caught early</strong></td><td><strong>5-10 phút</strong></td><td><strong>Có</strong></td></tr>
+      </table>
+
+      <div class="best-practice">
+        <div class="best-practice-label"><i class="ph ph-check-circle"></i> BEST PRACTICE — CATEGORIZE BEFORE FIXING</div>
+        <div class="do-this">
+          <div class="do-label"><i class="ph ph-check-circle"></i> DO THIS</div>
+          <p>Phân loại tất cả deviations theo Critical/Major/Minor TRƯỚC khi fix bất kỳ thứ gì. Fix Critical trước, rồi Major. Log Minor. Điều này ngăn iteration fatigue và đảm bảo effort đi đúng chỗ.</p>
+        </div>
+        <div class="avoid-this">
+          <div class="avoid-label"><i class="ph ph-x-circle"></i> AVOID THIS</div>
+          <p>Đừng "làm cho nó đẹp hơn" mà không có deviation report. Nếu bạn không thể đặt tên cụ thể cho deviation và expected value của nó, bạn đang đoán — không phải iterate.</p>
+        </div>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 4.2 exercise">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — BÀI TẬP</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_4_2_exercise.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Lấy prototype từ session 3.2. Chạy ba vòng audit-fix-reaudit. Deviation count phải giảm đơn điệu: V1 nhiều hơn V2 nhiều hơn V3. Commit tất cả ba version lên git với audit report đi kèm. Đây là bằng chứng convergent iteration của bạn.</p></details>
+      </div>
+
+      <div class="reflection" id="exercise-4-2">
+        <div class="reflection-label"><i class="ph ph-pencil-simple"></i> EXERCISE</div>
+        <h3>Iterate a Prototype Through 3 Versions</h3>
+        <p>Lấy prototype từ Session 3.2 (hoặc 3.3). Chạy qua 3 audit-fix-reaudit cycles:</p>
+        <ol>
+          <li><strong>Version 1 → Audit:</strong> tạo deviation report đầy đủ với counts (Critical/Major/Minor)</li>
+          <li><strong>Version 1 → Fix:</strong> fix tất cả Critical + Major, log Minor</li>
+          <li><strong>Version 2 → Re-audit:</strong> verify fixes, count deviations mới</li>
+          <li><strong>Version 2 → Fix:</strong> fix remaining Critical/Major nếu còn</li>
+          <li><strong>Version 3 → Re-audit:</strong> mục tiêu 0 Critical, 0 Major, chỉ còn Minor</li>
+          <li><strong>Commit tất cả:</strong> V1, V2, V3 lên git với audit reports đi kèm</li>
+        </ol>
+
+        <textarea placeholder="Deviation counts: V1: __C __M __m | V2: __C __M __m | V3: __C __M __m" aria-label="QA loop workspace"></textarea>
+
+        <div class="success-criteria">
+          <div class="success-criteria-label">SUCCESS CRITERIA</div>
+          <label><input type="checkbox"> Version 1: deviation report có số lượng cụ thể (không phải "nhiều lỗi")</label>
+          <label><input type="checkbox"> Version 2: Critical + Major đã được fix, re-audit xác nhận</label>
+          <label><input type="checkbox"> Version 3: tất cả deviations resolved hoặc chỉ còn Minor</label>
+          <label><input type="checkbox"> Deviation count giảm đơn điệu: V1 &gt; V2 &gt; V3</label>
+          <label><input type="checkbox"> Tất cả 3 versions được commit lên git với audit reports</label>
+        </div>
+      </div>
+
+      <div class="apply-challenge">
+        <div class="apply-challenge-label"><i class="ph ph-lightning"></i> APPLY CHALLENGE</div>
+        <p>Chạy QA loop trên một design cũ — một trang hoặc screen bạn đã ship trước khi học workshop này. Document số deviations bạn tìm thấy. Đây là calibration exercise: deviation count trước workshop vs sau khi áp dụng pipeline sẽ cho bạn thấy ROI thật sự.</p>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- SESSION 4.3 -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="session-divider" id="session-4-3"></div>
+      <h2>4.3 Capstone — End-to-End Design Sprint</h2>
+
+      <div class="audio-guide" role="region" aria-label="Session 4.3 intro">
+        <div class="audio-label"><i class="ph ph-headphones"></i> SESSION 4.3</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_4_3.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Session 4.3. Capstone. Từ ý tưởng đến prototype — một buổi, full pipeline.</p></details>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 4.3 attention hook">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — ATTENTION HOOK</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_4_3_hook.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Một designer cần ba case study để apply việc. Truyền thống: hai đến ba tuần mỗi case study. Với full pipeline — CONTEXT.md, NotebookLM research, token extraction, DESIGN.MD, Antigravity prototype, audit loop — một case study mỗi ngày. Không phải chất lượng thấp hơn. Quy trình có cấu trúc tạo ra công việc kỹ lưỡng hơn, nhất quán hơn, audit được hơn so với ad-hoc. Pipeline không chỉ tiết kiệm thời gian. Nó nâng sàn chất lượng.</p></details>
+      </div>
+
+      <div class="why">
+        <div class="why-label">ATTENTION HOOK — THE PORTFOLIO MULTIPLIER</div>
+        <p>A designer needed 3 case studies. Traditional process: 2-3 weeks per case study. With the full pipeline (CONTEXT.md → NotebookLM research → token extraction → DESIGN.MD → Antigravity prototype → audit loop): <strong>1 case study per day.</strong></p>
+        <p>Not lower quality — the structured process produces more thorough, consistent, auditable work than ad-hoc. <strong>The pipeline doesn't just save time. It raises the floor.</strong></p>
+      </div>
+
+      <h3>The Full Pipeline — Semua Gap Tertutup</h3>
+      <div class="audio-guide" role="region" aria-label="Session 4.3 concept">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — KHÁI NIỆM CHÍNH</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_4_3_concept.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Full pipeline kết hợp toàn bộ bốn level. L1 cho context và research. L2 cho token extraction, component docs, và audit foundation. L3 cho DESIGN.MD và prototype. L4 cho QA loop và automation. Quan trọng hơn: tất cả bảy gap trong Grand Masterplan của bạn bây giờ đã được đóng. Feedback loops, token overflow, verification, abstract tokens, copy-paste, shallow personas, iteration strategy — tất cả đã có giải pháp cụ thể trong pipeline này.</p></details>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>IDEA (feature mới, redesign, case study)
+    |
+    v
+L1: Context Architecture (Session 1.1)
+├── Viết CONTEXT.md: Product, Principles, User, Constraints, Anti-Patterns
+└── Load vào AI Studio làm system instruction
+    |
+    v
+L1: Research Synthesis (Session 1.3)
+├── NotebookLM notebook với 5+ sources
+└── Generate Audio Overview cho stakeholder alignment
+    |
+    v
+L2: Token Extraction (Session 2.1)
+├── Screenshot 4 key screens
+└── Extract 20+ tokens với Gemini multimodal
+    |
+    v
+L2: Component Specs (Session 2.2)
+├── Generate specs cho 3+ core components
+└── Verify tokens match extraction exactly
+    |
+    v
+L2: Consistency Audit (Session 2.3)
+├── Audit 4 screens chống token set
+└── Fix deviations → re-audit (feedback loop)
+    |
+    v
+L3: DESIGN.MD (Session 3.1)
+├── Compile tokens + specs + audit rules
+└── Commit lên git
+    |
+    v
+L3: Prototype (Sessions 3.2-3.3)
+├── Antigravity: single page với DESIGN.MD loaded
+└── Stitch: 2+ pages với shared.css + navigation
+    |
+    v
+L4: QA Loop (Session 4.2)
+├── Audit → fix Critical/Major → re-audit
+└── Converge đến 0 Critical, 0 Major
+    |
+    v
+OUTPUT
+└── Production-ready prototype + documented design system
+    + All artifacts committed to git</pre>
+      </div>
+
+      <h3>Grand Masterplan Gap Closure — Tất Cả 7 Gap Đã Đóng</h3>
+      <table>
+        <tr><th>#</th><th>Gap</th><th>Giải Pháp</th><th>Session</th></tr>
+        <tr><td>1</td><td>No feedback loops</td><td>BRIEF "F" + audit loop → output không được accept không qua verification</td><td>L1.2, L2.3, L4.2</td></tr>
+        <tr><td>2</td><td>Token overflow</td><td>Layer separation: Layer 1 là separate document, không paste vào mỗi chat</td><td>L1.1, L1.2</td></tr>
+        <tr><td>3</td><td>No verification</td><td>Audit loop: generate → audit → fix → re-audit cho đến 0 deviations</td><td>L2.3, L4.2</td></tr>
+        <tr><td>4</td><td>Abstract design tokens</td><td>Token extraction từ screenshots thật — grounded in reality, không aspirational</td><td>L2.1</td></tr>
+        <tr><td>5</td><td>Manual copy-paste</td><td>Stitch workflows: DESIGN.MD auto-load, output auto-save, git auto-commit</td><td>L3.2, L4.1</td></tr>
+        <tr><td>6</td><td>Shallow personas</td><td>CONTEXT.md User section: 3+ behavioral attributes, không chỉ demographics</td><td>L1.1, L1.3</td></tr>
+        <tr><td>7</td><td>No iteration strategy</td><td>Convergent iteration: categorize by severity, fix targeted, measure convergence</td><td>L4.2</td></tr>
+      </table>
+
+      <div class="insight">
+        <div class="insight-label"><i class="ph ph-book-open"></i> CROSS-DOMAIN — GAME DESIGN (TUTORIAL TO BOSS FIGHT)</div>
+        <p>Great games teach mechanics gradually across levels, then combine them all in the boss fight. <strong>The capstone IS the boss fight.</strong> Every skill from L1-L4 is used. If you get stuck on a stage, the gap tells you exactly which level to revisit.</p>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 4.3 insight">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — CROSS-DOMAIN INSIGHT</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_4_3_insight.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Game hay dạy mechanics dần dần qua từng level, rồi kết hợp tất cả trong boss fight. Capstone chính là boss fight. Mọi kỹ năng từ L1 đến L4 đều được dùng. Nếu bạn bị stuck ở giai đoạn nào, gap đó cho bạn biết chính xác level nào cần review lại.</p></details>
+      </div>
+
+      <h3>Capstone Time Budget (Under 3 Hours)</h3>
+      <table>
+        <tr><th>Stage</th><th>Thời Gian</th><th>Deliverable</th></tr>
+        <tr><td>CONTEXT.md (L1.1)</td><td>20 phút</td><td>5-section context file, load vào AI Studio</td></tr>
+        <tr><td>Research notebook (L1.3)</td><td>20 phút</td><td>5+ sources, 3 synthesis questions answered</td></tr>
+        <tr><td>Token extraction (L2.1)</td><td>10 phút</td><td>20+ tokens từ 4 screenshots</td></tr>
+        <tr><td>Component specs (L2.2)</td><td>15 phút</td><td>3 core component specs</td></tr>
+        <tr><td>DESIGN.MD compile (L3.1)</td><td>20 phút</td><td>9-section DESIGN.MD, committed to git</td></tr>
+        <tr><td>Prototype build (L3.2-3.3)</td><td>40 phút</td><td>2+ pages với working navigation</td></tr>
+        <tr><td>QA loop (L4.2)</td><td>30 phút</td><td>0 Critical, 0 Major deviations</td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>155 phút (&lt; 3 giờ)</strong></td><td><strong>Production-ready prototype + documented system</strong></td></tr>
+      </table>
+
+      <div class="best-practice">
+        <div class="best-practice-label"><i class="ph ph-check-circle"></i> BEST PRACTICE — PIPELINE DEBUG GUIDE</div>
+        <div class="do-this">
+          <div class="do-label"><i class="ph ph-check-circle"></i> OUTPUT QUALITY LOW? TRACE BACK THE PIPELINE</div>
+          <p><strong>Inconsistent colors?</strong> → Token extraction (L2.1) hoặc DESIGN.MD Section 2<br>
+          <strong>Wrong typography?</strong> → Token extraction (L2.1) hoặc DESIGN.MD Section 3<br>
+          <strong>Component states missing?</strong> → Component specs (L2.2)<br>
+          <strong>Drifts between pages?</strong> → shared.css generation (L3.3)<br>
+          <strong>Each iteration worse?</strong> → QA loop severity categorization (L4.2)<br>
+          <strong>AI ignores design system?</strong> → DESIGN.MD Section 9 Agent Prompt Guide (L3.1)</p>
+        </div>
+        <div class="avoid-this">
+          <div class="avoid-label"><i class="ph ph-x-circle"></i> AVOID THIS</div>
+          <p>Đừng re-run entire pipeline khi có vấn đề. Trace back đến đúng stage có issue. Pipeline debug là O(1) — bạn biết chính xác chỗ cần fix.</p>
+        </div>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 4.3 exercise">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — BÀI TẬP CAPSTONE</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_4_3_exercise.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Đây là bài tập cuối cùng của toàn bộ workshop. Chọn một project mới hoặc feature mới — thứ bạn thật sự cần build. Chạy toàn bộ pipeline từ đầu đến cuối trong một buổi. Mục tiêu: dưới ba giờ, 0 Critical deviation, tất cả artifacts commit lên git. Nếu bạn bị stuck, bảng gap closure ở trên sẽ chỉ bạn đúng stage cần review. Chúc mừng và chúc bạn build tốt.</p></details>
+      </div>
+
+      <div class="reflection" id="exercise-4-3">
+        <div class="reflection-label"><i class="ph ph-pencil-simple"></i> CAPSTONE EXERCISE</div>
+        <h3>Full Pipeline Sprint — Từ Idea Đến Production-Ready</h3>
+        <p>Execute toàn bộ pipeline trên một project mới hoặc feature mới trong một buổi duy nhất. Đây là bài kiểm tra thật sự cho toàn bộ 12 session bạn đã học.</p>
+
+        <h4>Checklist Thứ Tự</h4>
+        <div class="success-criteria">
+          <div class="success-criteria-label">L1 — FOUNDATION</div>
+          <label><input type="checkbox"> CONTEXT.md viết cho project mới (L1.1) — 5 sections, real data</label>
+          <label><input type="checkbox"> Research notebook tạo với 5+ sources (L1.3) — 3 synthesis questions answered</label>
+        </div>
+
+        <div class="success-criteria" style="margin-top:12px;">
+          <div class="success-criteria-label">L2 — DESIGN SYSTEM</div>
+          <label><input type="checkbox"> Token set extract từ reference designs (L2.1) — 20+ tokens</label>
+          <label><input type="checkbox"> 3 component specs generated (L2.2) — variants, states, tokens used</label>
+          <label><input type="checkbox"> Consistency audit trên 4 screens (L2.3) — deviation report created</label>
+        </div>
+
+        <div class="success-criteria" style="margin-top:12px;">
+          <div class="success-criteria-label">L3 — PROTOTYPE</div>
+          <label><input type="checkbox"> DESIGN.MD compiled từ L2 outputs (L3.1) — 9 sections, committed to git</label>
+          <label><input type="checkbox"> 2+ page prototype generated với working navigation (L3.2-3.3)</label>
+        </div>
+
+        <div class="success-criteria" style="margin-top:12px;">
+          <div class="success-criteria-label">L4 — PRODUCTION</div>
+          <label><input type="checkbox"> QA loop completed: 0 Critical, 0 Major deviations (L4.2)</label>
+          <label><input type="checkbox"> Tất cả artifacts committed lên git (CONTEXT.md, DESIGN.MD, pages)</label>
+          <label><input type="checkbox"> Total time: dưới 3 giờ (pipeline efficiency validated)</label>
+        </div>
+
+        <textarea placeholder="Project: ______&#10;Start time: ______&#10;End time: ______&#10;Total: ______&#10;&#10;Biggest bottleneck: ______&#10;Which pipeline stage helped most: ______" aria-label="Capstone sprint workspace" style="margin-top:16px;"></textarea>
+      </div>
+
+      <div class="apply-challenge">
+        <div class="apply-challenge-label"><i class="ph ph-lightning"></i> FINAL CHALLENGE — TEACH SOMEONE ELSE</div>
+        <p>Giải thích toàn bộ pipeline cho một designer khác trong 10 phút — không dùng slides, chỉ dùng whiteboard hoặc giấy. Nếu bạn có thể giải thích rõ ràng từng stage và tại sao nó tồn tại, bạn đã thật sự nắm được hệ thống. Đây là Feynman Technique — bạn chỉ thật sự hiểu khi có thể dạy lại.</p>
+      </div>
+
+      <!-- Level 4 closing narration -->
+      <div class="audio-guide" role="region" aria-label="Level 4 closing narration">
+        <div class="audio-label"><i class="ph ph-headphones"></i> LEVEL 4 — CLOSING</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/level_4_closing.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Chúc mừng. Bạn đã hoàn thành toàn bộ workshop AI-Powered Product Design. Bốn level, mười hai session, bảy gap trong Grand Masterplan của bạn — tất cả đã được giải quyết. Bạn có CONTEXT.md, DESIGN.MD, Stitch workflow, và QA loop. Không còn "clean minimal warm" mơ hồ. Không còn copy-paste 47 lần mỗi ngày. Không còn iteration không hội tụ. Hệ thống đã hoạt động. Bây giờ là lúc ship.</p></details>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- QUIZ -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="session-divider" id="quiz"></div>
+      <div class="quiz">
+        <div class="quiz-title"><i class="ph ph-exam"></i> LEVEL 4 SELF-CHECK QUIZ</div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q1: Tại sao re-generating từ đầu là chiến lược iteration tệ?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) Tốn nhiều token quá</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) Reset tất cả progress — version mới có random deviations hoàn toàn khác</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) Mất quá nhiều thời gian</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) Antigravity không support re-generation</li>
+          </ul>
+          <div class="quiz-answer">B — Re-generation không fix vấn đề gốc rễ — nó chỉ tạo ra một bộ vấn đề mới. Targeted fixes preserve progress. Re-generation là đầu hàng, không phải giải pháp.</div>
+        </div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q2: Trong QA loop, khi nào nên fix Minor deviations?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) Ngay lập tức — minor deviations là nhỏ nên nhanh thôi</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) Sau khi tất cả Critical và Major đã được resolved</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) Không cần fix — minor không ảnh hưởng</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) Trong cùng iteration với Critical</li>
+          </ul>
+          <div class="quiz-answer">B — Fix theo thứ tự severity ngăn iteration fatigue và đảm bảo effort đi đến nơi có impact cao nhất. Critical trước, Major sau, Minor cuối. Không skip thứ tự.</div>
+        </div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q3: Lợi ích chính của Stitch workflows so với copy-paste thủ công là gì?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) Nhanh hơn</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) Loại bỏ con người làm data transport layer giữa các stations</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) Rẻ hơn</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) Output chất lượng cao hơn</li>
+          </ul>
+          <div class="quiz-answer">B — Tốc độ là side effect, không phải benefit chính. Benefit chính: mỗi manual transfer là một điểm có thể có lỗi và drift. Loại bỏ con người làm data transport = loại bỏ nguồn error đó hoàn toàn.</div>
+        </div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q4: Capstone prototype có typography không nhất quán. Lam nên revisit session nào?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) 1.1 (Context Architecture)</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) 2.1 (Token Extraction) hoặc 3.1 (DESIGN.MD Section 3)</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) 4.1 (Stitch Workflow)</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) 1.2 (Structured Prompting)</li>
+          </ul>
+          <div class="quiz-answer">B — Typography inconsistency = typography tokens chưa đúng trong extraction (L2.1) hoặc chưa được specify đủ trong DESIGN.MD Section 3 (L3.1). Trace back đến đúng stage, fix tại source.</div>
+        </div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q5: Làm sao biết full pipeline đang hoạt động đúng?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) Output trông đẹp</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) Deviation count hội tụ về 0 qua các iteration và total time dưới 3 giờ</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) Không có error messages</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) Stakeholders approve</li>
+          </ul>
+          <div class="quiz-answer">B — Hai metrics đo pipeline health: (1) deviation convergence — mỗi version ít deviation hơn version trước; (2) total time — nếu capstone sprint mất 5+ giờ, một stage đang bottleneck pipeline. "Trông đẹp" là subjective và không measurable.</div>
+        </div>
+      </div>
+
+      <!-- Bottom Nav -->
+      <div class="bottom-nav">
+        <a href="level-3-prototype.html"><i class="ph ph-arrow-left"></i> Level 3: Prototype</a>
+        <span style="color: var(--slate); font-size: 20px; padding: 10px 0;"><i class="ph ph-check-circle"></i> Workshop Complete</span>
+      </div>
+
+      <div class="footer">
+        <div class="footer-brand">EaseStart Workshop</div>
+        <p>AI-Powered Product Design &middot; Level 4 of 4</p>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function copyCode(btn) {
+      const pre = btn.parentElement.querySelector('pre');
+      navigator.clipboard.writeText(pre.textContent.trim()).then(() => {
+        btn.textContent = 'COPIED';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'COPY'; btn.classList.remove('copied'); }, 2000);
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = pre.textContent.trim();
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = 'COPIED';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'COPY'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+
+    function selectQuiz(li) {
+      const item = li.closest('.quiz-item');
+      const correctAnswer = parseInt(item.dataset.answer);
+      const selectedOption = parseInt(li.dataset.option);
+      const options = item.querySelectorAll('.quiz-options li');
+      const answer = item.querySelector('.quiz-answer');
+      options.forEach(o => { o.classList.remove('selected', 'correct', 'incorrect'); });
+      if (selectedOption === correctAnswer) {
+        li.classList.add('correct');
+      } else {
+        li.classList.add('incorrect');
+        options[correctAnswer].classList.add('correct');
+      }
+      answer.classList.add('revealed');
+    }
+  </script>
+</body>
+</html>

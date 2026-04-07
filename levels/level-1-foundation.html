@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Level 1: Foundation — Think in Systems, Not Prompts. Xây nền tảng AI cho product designer.">
+  <title>Level 1: Foundation — AI Product Design Workshop</title>
+  <link rel="stylesheet" href="../shared.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <div class="sidebar-brand">
+        <h2>Workshop</h2>
+        <p>AI Product Design</p>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Modules</div>
+        <a href="../index.html" class="nav-link"><i class="ph ph-arrow-left"></i> Hub</a>
+        <a href="level-1-foundation.html" class="nav-link active"><span class="nav-stage-num">1</span> Foundation</a>
+        <a href="level-2-design-system.html" class="nav-link"><span class="nav-stage-num">2</span> Design System</a>
+        <a href="level-3-prototype.html" class="nav-link"><span class="nav-stage-num">3</span> Prototype</a>
+        <a href="level-4-production.html" class="nav-link"><span class="nav-stage-num">4</span> Production</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Sessions</div>
+        <a href="#session-1-1" class="nav-link">1.1 Context Architecture</a>
+        <a href="#session-1-2" class="nav-link">1.2 Structured Prompting</a>
+        <a href="#session-1-3" class="nav-link">1.3 Research Synthesis</a>
+        <a href="#quiz" class="nav-link">Self-Check Quiz</a>
+      </div>
+    </nav>
+
+    <main class="main">
+      <h1>Foundation</h1>
+      <p class="subtitle">Level 1 &middot; Think in Systems, Not Prompts</p>
+
+      <!-- Level 1 intro narration -->
+      <div class="audio-guide" role="region" aria-label="Level 1 intro narration">
+        <div class="audio-label"><i class="ph ph-headphones"></i> LEVEL 1 — INTRO</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/level_1_intro.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Chào Lam, chào mừng đến với Level 1 của workshop AI-Powered Product Design. Ở level này, chúng ta sẽ xây dựng nền tảng — không phải viết prompt ngẫu hứng, mà là xây hệ thống. Ba session sẽ đưa bạn từ "giải thích lại từ đầu mỗi lần" sang "context luôn sẵn sàng, output luôn nhất quán." Sẵn sàng chưa?</p></details>
+      </div>
+
+      <div class="objectives">
+        <div class="objectives-title"><i class="ph ph-target"></i> LEARNING OBJECTIVES</div>
+        <ol>
+          <li>Xây dựng Context Foundation 3 lớp — load một lần, dùng mãi cho mọi dự án</li>
+          <li>Viết prompt theo framework BRIEF — có feedback loop tự động, output đạt chuẩn ngay lần đầu</li>
+          <li>Tạo Research Notebook tích lũy với NotebookLM — nghiên cứu không bay hơi nữa</li>
+        </ol>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- SESSION 1.1 -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="session-divider" id="session-1-1"></div>
+      <h2>1.1 Context Architecture</h2>
+
+      <div class="audio-guide" role="region" aria-label="Session 1.1 intro">
+        <div class="audio-label"><i class="ph ph-headphones"></i> SESSION 1.1</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_1_1.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Session 1.1. Xây Nền Tảng Ngữ Cảnh.</p></details>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 1.1 hook">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — ATTENTION HOOK</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_1_1_hook.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Một product designer làm freelance tính toán lại thời gian của mình. Mỗi session với Gemini, họ mất 45 phút để giải thích lại design system: màu sắc, spacing, component constraints. 30 chat mỗi tuần. 12 tiếng mỗi tuần chỉ để nhập lại context. Với rate 25 đô mỗi giờ, đó là 300 đô mỗi tuần, tức 15,600 đô mỗi năm — bay hơi vì không có hệ thống.</p></details>
+      </div>
+
+      <div class="why">
+        <div class="why-label"><i class="ph ph-warning-circle"></i> ATTENTION HOOK — NỖI ĐAU $1,200/TUẦN</div>
+        <p>Một product designer làm freelance mất <strong>45 phút/session</strong> để giải thích lại design system cho Gemini — màu sắc, spacing, component constraints — qua 30+ chat mỗi tuần. Đó là <strong>12 tiếng/tuần</strong> chỉ để nhập lại context.</p>
+        <p>Với rate $25/hr: $300/tuần &times; 52 tuần = <strong>$15,600/năm</strong> bốc hơi vì thiếu hệ thống.</p>
+        <p>Fix không phải là viết prompt dài hơn. Fix là xây một <strong>Context Foundation</strong> — load một lần, dùng mãi.</p>
+      </div>
+
+      <p><strong>Câu hỏi cho bạn:</strong> Tuần này bạn đã phải giải thích lại cùng một thứ cho AI bao nhiêu lần?</p>
+
+      <h3>Tại sao điều này quan trọng</h3>
+
+      <div class="audio-guide" role="region" aria-label="Session 1.1 problem">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — VẤN ĐỀ</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_1_1_concept.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Grand Masterplan của bạn giải quyết được nhiều thứ, nhưng vẫn còn một lỗ hổng lớn: mỗi khi mở chat mới, AI không nhớ gì cả. Không nhớ design tokens. Không nhớ target user. Không nhớ anti-patterns bạn đã xác định. Khi AI không nhớ, nó đoán. Mà đoán thì luôn ra output chung chung.</p></details>
+      </div>
+
+      <p>Mọi vấn đề trong Grand Masterplan của bạn đều có một nguyên nhân gốc: <strong>context loss</strong>.</p>
+
+      <table>
+        <tr><th>Vấn đề</th><th>Nguyên nhân gốc</th></tr>
+        <tr><td>Output inconsistent sau mỗi iteration</td><td>AI không nhớ design decisions của bạn</td></tr>
+        <tr><td>Output generic, không competitive</td><td>AI không biết product context của bạn</td></tr>
+        <tr><td>Token overflow trong mega-prompt</td><td>Cố nhồi tất cả context vào 1 prompt</td></tr>
+        <tr><td>Personas quá generic</td><td>AI không có behavioral data cụ thể</td></tr>
+      </table>
+
+      <div class="insight">
+        <div class="insight-label">KEY INSIGHT</div>
+        <p><strong>Một hệ thống 3 lớp fix tất cả 4 vấn đề trên.</strong></p>
+      </div>
+
+      <h3>Core Concept: Hệ Thống 3 Lớp Design Context</h3>
+
+      <div class="audio-guide" role="region" aria-label="Session 1.1 concept detail">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — KHÁI NIỆM CHÍNH</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_1_1_concept.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Giải pháp là mô hình ba lớp. Lớp 1 là Product Context — bạn viết một lần, load mãi mãi. Lớp 2 là Design Instructions — template tái sử dụng, token rules, output format. Lớp 3 mới là Task Prompt — câu lệnh cụ thể cho từng tác vụ. Hầu hết mọi người chỉ xây lớp 3. Đó là lý do output thiếu nhất quán. Chất lượng thực sự đến từ lớp 1 và lớp 2.</p></details>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>+-------------------------------------+
+| Layer 3: TASK PROMPT                |  &lt;- Thay đổi mỗi task
+| "Create a card component for..."    |
++-------------------------------------+
+| Layer 2: DESIGN INSTRUCTIONS        |  &lt;- Tái sử dụng theo project
+| Token rules, component specs,       |
+| output format (Figma/HTML/Tailwind) |
++-------------------------------------+
+| Layer 1: PRODUCT CONTEXT            |  &lt;- Viết một lần, load mãi
+| Brand identity, target user,        |
+| design principles, anti-patterns    |
++-------------------------------------+</pre>
+      </div>
+
+      <p>Hầu hết mọi người chỉ xây Layer 3 (prompt). Đó là lý do output chung chung. <strong>Chất lượng nhất quán đến từ Layer 1 và Layer 2.</strong></p>
+
+      <div class="audio-guide" role="region" aria-label="Session 1.1 insight">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — CROSS-DOMAIN INSIGHT</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_1_1_insight.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Kiến trúc sư không thiết kế lại hệ thống ống nước mỗi dự án. Quy chuẩn xây dựng là context được pre-load — mỗi bản thiết kế đều ngầm tham chiếu đến chúng. CONTEXT.md của bạn là building code cho AI — load một lần, mọi output tự động tuân thủ.</p></details>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label"><i class="ph ph-buildings"></i> CROSS-DOMAIN — KIẾN TRÚC (BUILDING CODES)</div>
+        <p>Kiến trúc sư không thiết kế lại tiêu chuẩn ống nước, điện, kết cấu mỗi dự án. Building codes là context được pre-load — mọi bản vẽ đều tự động tham chiếu. <strong>CONTEXT.md của bạn là building code cho AI</strong> — load một lần, mọi output tự động tuân thủ quy chuẩn của bạn.</p>
+      </div>
+
+      <h3>So Sánh Các Approach</h3>
+      <table>
+        <tr><th>Approach</th><th>Setup</th><th>Thời gian/Task</th><th>Chất lượng</th><th>Nhất quán</th></tr>
+        <tr><td>Ad-hoc Gemini chat</td><td>0 phút</td><td>30-45 phút</td><td>4/10</td><td>Ngẫu nhiên</td></tr>
+        <tr><td>Prompt library</td><td>2 tiếng</td><td>15-20 phút</td><td>5-6/10</td><td>Trung bình</td></tr>
+        <tr><td>Grand Masterplan (hiện tại)</td><td>4 tiếng</td><td>10-15 phút</td><td>6-7/10</td><td>Fragile</td></tr>
+        <tr><td><strong>3-Layer System</strong></td><td>3 tiếng (một lần)</td><td>3-5 phút</td><td>8-9/10</td><td>Locked</td></tr>
+      </table>
+
+      <div class="best-practice">
+        <div class="best-practice-label"><i class="ph ph-check-circle"></i> BEST PRACTICE</div>
+        <div class="do-this">
+          <div class="do-label"><i class="ph ph-check-circle"></i> LÀM NÀY</div>
+          <p>Tạo <code>CONTEXT.md</code> với 5 sections: Product, Design Principles, Target User (với behavioral detail), Constraints, Anti-Patterns. Load nó làm system prompt trong AI Studio. Đây là Layer 1 — viết một lần, dùng cho mọi project.</p>
+        </div>
+        <div class="avoid-this">
+          <div class="avoid-label"><i class="ph ph-x-circle"></i> TRÁNH NÀY</div>
+          <p>Đừng nhồi tất cả vào một mega-prompt. Layer 1 là document riêng — không copy-paste vào mỗi chat. Đây chính là fix cho Gap 2: token overflow.</p>
+        </div>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 1.1 exercise">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — BÀI TẬP</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_1_1_exercise.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Bài tập: Tạo CONTEXT.md cho project hiện tại của Lam. Cần 5 phần: thông tin sản phẩm, nguyên tắc thiết kế, target user với ít nhất 3 behavioral attributes, constraints, và anti-patterns từ các lỗi thực tế đã gặp. Tiêu chí thành công: không có placeholder nào, target user section có behavioral data thật, anti-patterns có ít nhất 3 mục từ thất bại thực tế.</p></details>
+      </div>
+
+      <div class="reflection" id="exercise-1-1">
+        <div class="reflection-label"><i class="ph ph-pencil-simple"></i> BÀI TẬP — XÂY CONTEXT FOUNDATION</div>
+        <h3>Tạo CONTEXT.md cho project hiện tại của bạn</h3>
+        <p>Điền đủ 5 sections bên dưới với dữ liệu thật từ project hiện tại. Không dùng placeholder.</p>
+
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre># [Tên Project] — AI Context Foundation
+
+## Product
+- One-liner: [sản phẩm làm gì]
+- Target user: [ai, level của họ, mục tiêu của họ]
+- Core problem: [đau điểm cụ thể nào sản phẩm giải quyết]
+
+## Design Principles
+- Visual style: [minimal/bold/warm — với ví dụ cụ thể]
+- Hierarchy rule: [cách phân cấp thông tin]
+- Motion: [có animation không? Loại nào?]
+
+## Target User (Behavioral)
+- Behavior 1: [họ thường làm gì trong workflow]
+- Behavior 2: [họ bị chặn ở đâu]
+- Behavior 3: [họ đo success bằng gì]
+
+## Constraints
+- Technical: [stack, platform, responsive rules]
+- Design: [token set, không dùng gì]
+- Business: [timeline, budget, stakeholder rules]
+
+## Anti-Patterns (Từ thất bại thực tế)
+- [Lỗi cụ thể đã xảy ra] → [cách tránh]
+- [Lỗi cụ thể đã xảy ra] → [cách tránh]
+- [Lỗi cụ thể đã xảy ra] → [cách tránh]</pre>
+        </div>
+
+        <textarea placeholder="Paste CONTEXT.md đã hoàn thành vào đây để review..." aria-label="Context Foundation workspace"></textarea>
+
+        <div class="success-criteria">
+          <div class="success-criteria-label">SUCCESS CRITERIA</div>
+          <label><input type="checkbox"> Tất cả 5 sections có dữ liệu thật (không có placeholder)</label>
+          <label><input type="checkbox"> Target User section có 3+ behavioral attributes (không chỉ demographics)</label>
+          <label><input type="checkbox"> Anti-Patterns có 3+ mục từ thất bại thực tế</label>
+          <label><input type="checkbox"> File load thành công làm AI Studio system instruction</label>
+          <label><input type="checkbox"> Test: hỏi Gemini "describe our product" — output khớp với thực tế</label>
+        </div>
+      </div>
+
+      <div class="apply-challenge">
+        <div class="apply-challenge-label"><i class="ph ph-lightning"></i> APPLY CHALLENGE</div>
+        <p>Load <code>CONTEXT.md</code> vào AI Studio làm system instruction. Mở một chat mới <strong>không</strong> có context. Mở một chat khác <strong>có</strong> context. Cùng task: "Describe our product's target user." So sánh output. Sự khác biệt chính là lý do Layer 1 tồn tại.</p>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- SESSION 1.2 -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="session-divider" id="session-1-2"></div>
+      <h2>1.2 Structured Prompting for Designers</h2>
+
+      <div class="audio-guide" role="region" aria-label="Session 1.2 intro">
+        <div class="audio-label"><i class="ph ph-headphones"></i> SESSION 1.2</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_1_2.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Session 1.2. Một Prompt Bằng Output của Senior Designer.</p></details>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 1.2 hook">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — ATTENTION HOOK</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_1_2_hook.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Hai designer, cùng một task: "Create a card component for a SaaS dashboard." Designer A nhập một câu vào Gemini. Designer B dùng structured prompt với context, constraints, output format, và evaluation criteria. Kết quả: 3/10 vs 8/10. Chênh lệch thời gian: 2 phút. Prompt của Designer B có 12 dòng. 12 dòng = 7x quality improvement.</p></details>
+      </div>
+
+      <div class="why">
+        <div class="why-label"><i class="ph ph-chart-line-up"></i> ATTENTION HOOK — THE 7X QUALITY MULTIPLIER</div>
+        <p>Hai designer, cùng một task: "Create a card component for a SaaS dashboard." Designer A nhập một câu. Designer B dùng structured prompt với context, constraints, output format, và evaluation criteria.</p>
+        <p>Kết quả output: <strong>3/10 vs 8/10.</strong> Chênh lệch thời gian: 2 phút. Prompt của Designer B: 12 dòng. <strong>12 dòng = 7x quality improvement.</strong></p>
+      </div>
+
+      <h3>Bridge</h3>
+      <p>Trong Session 1.1, bạn đã xây Layer 1 (Product Context). Bây giờ chúng ta xây Layer 2: <strong>Design Instructions</strong> — template tái sử dụng nói với AI <em>cách</em> thực thi.</p>
+
+      <h3>Tại sao điều này quan trọng</h3>
+      <p>Pain point hiện tại: Grand Masterplan của bạn thiếu feedback loop (Gap 1). Output được chấp nhận mà không qua verification. <strong>Framework BRIEF thêm feedback loop tự động vào mọi prompt.</strong></p>
+
+      <h3>Core Concept: The BRIEF Framework</h3>
+
+      <div class="audio-guide" role="region" aria-label="Session 1.2 concept">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — KHÁI NIỆM CHÍNH</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_1_2_concept.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Framework BRIEF gồm 5 phần. B là Background — bối cảnh project, load từ Layer 1. R là Role — AI đội mũ expert nào: "Senior UI designer với 8 năm kinh nghiệm SaaS." I là Intent — output này phục vụ quyết định gì: "stakeholder review" hay "dev handoff"? E là Expectations — format đầu ra cụ thể: Tailwind classes, token table, component spec. F là Feedback Loop — tiêu chí đánh giá: "Score 1-10 trên consistency với tokens, hierarchy clarity, responsive logic." Phần F là thứ Grand Masterplan của bạn đang thiếu.</p></details>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>B — Background    (project context, load từ Layer 1 CONTEXT.md)
+R — Role          (AI đội mũ expert nào: "Senior UI designer with 8yr SaaS exp")
+I — Intent        (output này phục vụ quyết định gì: "stakeholder review" vs "dev handoff")
+E — Expectations  (output format: Tailwind classes, token table, component spec)
+F — Feedback Loop (cách đánh giá: "Score 1-10 on these 5 criteria, flag issues")</pre>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label">KEY INSIGHT</div>
+        <p>Phần <strong>"F" (Feedback Loop)</strong> là thứ Grand Masterplan của bạn đang thiếu (Gap 1). Mọi prompt kết thúc bằng một bước self-evaluation — AI tự kiểm tra output của mình trước khi bạn nhận.</p>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 1.2 insight">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — CROSS-DOMAIN INSIGHT</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_1_2_insight.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Phi công không freestyle cất cánh. Checklist preflight của Boeing 747 có 200+ items — không phải vì phi công hay quên, mà vì sự nhất quán cứu mạng người. Framework BRIEF là preflight checklist cho AI prompt. Bỏ qua phần F (Feedback Loop) là bay mù.</p></details>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label"><i class="ph ph-airplane"></i> CROSS-DOMAIN — HÀNG KHÔNG (PREFLIGHT CHECKLISTS)</div>
+        <p>Phi công không freestyle cất cánh. Checklist preflight của Boeing 747 có 200+ items — không phải vì phi công hay quên, mà vì sự nhất quán cứu mạng người. <strong>Framework BRIEF là preflight checklist cho AI prompt.</strong> Bỏ qua phần "F" (Feedback Loop) là bay mù.</p>
+      </div>
+
+      <h3>So Sánh Các Framework</h3>
+      <table>
+        <tr><th>Framework</th><th>Structured?</th><th>Có Feedback?</th><th>Design-Specific?</th><th>Token Efficiency</th></tr>
+        <tr><td>RTF (Role-Task-Format)</td><td>Medium</td><td>Không</td><td>Không</td><td>Tốt</td></tr>
+        <tr><td>Chain of Thought</td><td>Cao</td><td>Không</td><td>Không</td><td>Nặng</td></tr>
+        <tr><td>CARE scoring (hiện tại)</td><td>Medium</td><td>Một phần</td><td>Có</td><td>Trung bình</td></tr>
+        <tr><td><strong>BRIEF</strong></td><td>Cao</td><td><strong>Có</strong></td><td><strong>Có</strong></td><td><strong>Optimized</strong></td></tr>
+      </table>
+
+      <h3>BRIEF Trong Thực Tế</h3>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>## B — Background
+[Load từ CONTEXT.md: product brief, design tokens, target user]
+
+## R — Role
+You are a Senior UI Designer with 8 years of SaaS product experience.
+Specializing in: component systems, accessibility, Tailwind CSS.
+
+## I — Intent
+This card component will be used in stakeholder review next week.
+Decision: whether to proceed with this pattern across all dashboard tiles.
+
+## E — Expectations
+Output:
+- HTML + Tailwind CSS (no inline styles)
+- 3 variants: default, hover, selected
+- Token names referenced (not hardcoded values)
+- Do's and Don'ts section (3 each)
+
+## F — Feedback Loop
+Score this output 1-10 on:
+1. Consistency with token set (from CONTEXT.md)
+2. Hierarchy clarity (visual weight tells the right story)
+3. Responsive behavior (works at 320px, 768px, 1280px)
+Flag anything below 7 and explain why.</pre>
+      </div>
+
+      <div class="best-practice">
+        <div class="best-practice-label"><i class="ph ph-check-circle"></i> BEST PRACTICE</div>
+        <div class="do-this">
+          <div class="do-label"><i class="ph ph-check-circle"></i> LÀM NÀY</div>
+          <p>Kết thúc mọi prompt với: "F: Score this output 1-10 on [consistency with tokens, hierarchy clarity, responsive logic]. Flag anything below 7." Đây là automatic feedback — fix Gap 1.</p>
+        </div>
+        <div class="avoid-this">
+          <div class="avoid-label"><i class="ph ph-x-circle"></i> TRÁNH NÀY</div>
+          <p>Đừng dùng Chain-of-Thought cho các design task đơn giản — nó waste tokens và thêm noise. Dùng CoT chỉ cho quyết định design phức tạp nhiều bước. Fix Gap 2: token overflow.</p>
+        </div>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 1.2 exercise">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — BÀI TẬP</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_1_2_exercise.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Lấy một prompt đang hoạt động tốt nhất trong Grand Masterplan của bạn. Rewrite nó theo framework BRIEF. Đặc biệt chú ý phần F — thêm 3 tiêu chí đánh giá cụ thể. Chạy cả hai phiên bản, so sánh kết quả trên CARE rubric của bạn. BRIEF version phải score cao hơn ít nhất 2 điểm.</p></details>
+      </div>
+
+      <div class="reflection" id="exercise-1-2">
+        <div class="reflection-label"><i class="ph ph-pencil-simple"></i> BÀI TẬP — REWRITE PROMPT TỐT NHẤT</div>
+        <h3>Lấy prompt tốt nhất trong Grand Masterplan. Rewrite bằng BRIEF.</h3>
+        <p>Paste prompt cũ vào, sau đó viết lại đủ 5 phần B-R-I-E-F bên dưới.</p>
+
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>## B — Background
+[Tham chiếu đến CONTEXT.md — không copy inline]
+
+## R — Role
+[Expert hat AI đội: specialization, years of experience]
+
+## I — Intent
+[Decision này phục vụ ai? Được dùng ở đâu trong workflow?]
+
+## E — Expectations
+[Format output cụ thể: HTML? Markdown? Token table?]
+[MUST include: ...]
+[MUST avoid: ...]
+
+## F — Feedback Loop
+Score 1-10 on:
+1. [Tiêu chí 1 cụ thể]
+2. [Tiêu chí 2 cụ thể]
+3. [Tiêu chí 3 cụ thể]
+Flag anything below 7.</pre>
+        </div>
+
+        <textarea placeholder="Paste BRIEF version prompt của bạn vào đây..." aria-label="BRIEF prompt workspace"></textarea>
+
+        <div class="success-criteria">
+          <div class="success-criteria-label">SUCCESS CRITERIA</div>
+          <label><input type="checkbox"> Prompt có đủ 5 thành phần BRIEF</label>
+          <label><input type="checkbox"> Background tham chiếu CONTEXT.md (không inline context)</label>
+          <label><input type="checkbox"> Feedback Loop có 3+ tiêu chí đo lường được</label>
+          <label><input type="checkbox"> Cùng task, phiên bản BRIEF score cao hơn 2+ điểm trên CARE rubric</label>
+          <label><input type="checkbox"> Prompt nằm dưới 400 tokens (efficiency check)</label>
+        </div>
+      </div>
+
+      <div class="apply-challenge">
+        <div class="apply-challenge-label"><i class="ph ph-lightning"></i> APPLY CHALLENGE</div>
+        <p>Tạo một thư mục <code>briefs/</code> trong project của bạn. Lưu prompt BRIEF này làm <code>briefs/card-component.md</code>. Lần sau cần component tương tự, bạn chỉ cần copy-modify-run — không cần viết từ đầu. <strong>Brief thứ 2 cho cùng loại task nên mất dưới 5 phút.</strong></p>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- SESSION 1.3 -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="session-divider" id="session-1-3"></div>
+      <h2>1.3 Research Synthesis với NotebookLM</h2>
+
+      <div class="audio-guide" role="region" aria-label="Session 1.3 intro">
+        <div class="audio-label"><i class="ph ph-headphones"></i> SESSION 1.3</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_1_3.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Session 1.3. Biến 20 Nguồn Thành 1 Insight — Research Tích Lũy.</p></details>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 1.3 hook">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — ATTENTION HOOK</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_1_3_hook.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Một product designer đã research 15 competitor app trong 3 ngày. Screenshots, notes, analysis. Hai tuần sau, bắt đầu feature mới, họ research lại từ đầu những competitor đó. Round đầu tiên? Biến mất. Không cấu trúc, không tagging, không tái sử dụng được. 800 đô tiền thiết kế bốc hơi hai lần. Fix: 30 phút xây structured research notebook mà AI có thể query mãi mãi.</p></details>
+      </div>
+
+      <div class="why">
+        <div class="why-label"><i class="ph ph-fish"></i> ATTENTION HOOK — THE GOLDFISH DESIGNER PROBLEM</div>
+        <p>Một product designer research 15 competitor app trong 3 ngày — screenshots, notes, analysis. Hai tuần sau, bắt đầu feature mới, họ <strong>research lại từ đầu</strong> những competitor đó. Round đầu tiên? Biến mất.</p>
+        <p>Không có cấu trúc, không tagging, không tái sử dụng được. <strong>$800 design time bốc hơi hai lần.</strong> Fix: 30 phút xây structured research notebook mà AI có thể query mãi mãi.</p>
+      </div>
+
+      <h3>Bridge</h3>
+      <p>Trong Session 1.1, bạn xây Context Foundation — "ai bạn là." Trong Session 1.2, bạn xây BRIEF templates — "cách bạn chỉ đạo AI." Bây giờ là lớp thứ ba: <strong>accumulated research</strong> — "những gì bạn biết về thị trường và user." Đây là thứ tạo ra unfair advantage.</p>
+
+      <h3>Core Concept: The Research Flywheel</h3>
+
+      <div class="audio-guide" role="region" aria-label="Session 1.3 concept">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — KHÁI NIỆM CHÍNH</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_1_3_concept.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Research flywheel hoạt động theo vòng tròn. Bạn collect: screenshots, PDFs, articles. Bạn structure: thêm vào NotebookLM notebook với tagged sources. AI synthesize: cross-reference tìm patterns, contradictions, gaps. Bạn query: đặt câu hỏi dựa trên accumulated knowledge. Và mỗi source mới enrich tất cả future queries. Đây không phải research một lần — đây là knowledge flywheel.</p></details>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>COLLECT (screenshots, PDFs, articles, competitor URLs)
+    |
+    v
+STRUCTURE (NotebookLM notebook + tagged sources + 1-line annotation)
+    |
+    v
+SYNTHESIZE (AI cross-references -&gt; patterns, contradictions, gaps)
+    |
+    v
+QUERY (đặt câu hỏi dựa trên accumulated knowledge)
+    |
+    v
+COMPOUND (mỗi source mới enrich tất cả future queries)</pre>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label">KEY INSIGHT</div>
+        <p><strong>NotebookLM's Audio Overview</strong> biến 30 phút đọc thành 5 phút nghe. Dùng cho stakeholder alignment — chia sẻ audio, không phải doc. Đây là cách tích lũy research cho Shallow Personas (Gap 6) — mỗi user interview, behavioral observation thêm vào notebook để AI có context ngày càng sâu hơn.</p>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 1.3 insight">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — CROSS-DOMAIN INSIGHT</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_1_3_insight.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Các tòa báo ngày xưa duy trì "morgue files" — lưu trữ bài viết cũ, ảnh, và source notes. Khi một story nổ ra, phóng viên check morgue trước. NotebookLM là digital morgue của bạn: mỗi competitor screenshot, user interview, design audit đều trở thành queryable research cho mọi project tương lai.</p></details>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label"><i class="ph ph-newspaper"></i> CROSS-DOMAIN — BÁO CHÍ (THE MORGUE FILE)</div>
+        <p>Các tòa báo duy trì "morgue files" — lưu trữ bài viết cũ, ảnh, source notes. Khi story nổ ra, phóng viên check morgue trước. <strong>NotebookLM là digital morgue của bạn:</strong> mỗi competitor screenshot, user interview, design audit đều trở thành queryable research cho mọi project tương lai.</p>
+      </div>
+
+      <h3>So Sánh Các Method</h3>
+      <table>
+        <tr><th>Method</th><th>Retention</th><th>Cross-Reference</th><th>Design Reuse</th><th>Time Investment</th></tr>
+        <tr><td>Browser bookmarks</td><td>20%</td><td>Không có</td><td>Không có</td><td>0 phút</td></tr>
+        <tr><td>Google Docs notes</td><td>60%</td><td>Manual</td><td>Thấp</td><td>30 phút</td></tr>
+        <tr><td>Gemini chat history</td><td>0% sau khi đóng</td><td>Không có</td><td>Không có</td><td>0 phút</td></tr>
+        <tr><td><strong>NotebookLM</strong></td><td><strong>100%</strong></td><td><strong>Automatic</strong></td><td><strong>Cao</strong></td><td><strong>30 phút setup</strong></td></tr>
+      </table>
+
+      <div class="best-practice">
+        <div class="best-practice-label"><i class="ph ph-check-circle"></i> BEST PRACTICE</div>
+        <div class="do-this">
+          <div class="do-label"><i class="ph ph-check-circle"></i> LÀM NÀY</div>
+          <p>Tạo một NotebookLM notebook per project. Thêm sources khi research (screenshots dưới dạng PDF, competitor URLs, user interview transcripts). Tag sources theo categories. Đặt synthesis questions: "What patterns appear across all competitor onboarding flows?"</p>
+        </div>
+        <div class="avoid-this">
+          <div class="avoid-label"><i class="ph ph-x-circle"></i> TRÁNH NÀY</div>
+          <p>Đừng dùng NotebookLM như thùng rác. Quality of sources &gt; quantity. 10 competitor screenshots được chọn lọc kỹ đánh bại 50 cái random. Thêm 1-line annotation mỗi source giải thích <em>tại sao</em> bạn include nó.</p>
+        </div>
+      </div>
+
+      <div class="audio-guide" role="region" aria-label="Session 1.3 exercise">
+        <div class="audio-label"><i class="ph ph-headphones"></i> NGHE — BÀI TẬP</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/session_1_3_exercise.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Xây một NotebookLM notebook cho project hiện tại. Thêm ít nhất 5 sources — mix giữa screenshots, PDFs, và URLs. Mỗi source có 1-line annotation. Đặt 3 cross-reference questions và kiểm tra AI có trả lời với citations không. Generate Audio Overview và nghe thử xem có accurate không.</p></details>
+      </div>
+
+      <div class="reflection" id="exercise-1-3">
+        <div class="reflection-label"><i class="ph ph-pencil-simple"></i> BÀI TẬP — BUILD DESIGN RESEARCH NOTEBOOK</div>
+        <h3>Tạo NotebookLM notebook cho project hiện tại của bạn</h3>
+        <p>Thêm 5+ sources với annotation và chạy synthesis queries.</p>
+
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>SOURCES TO ADD:
+1. [Competitor A onboarding screenshot] — "Best practice for step progression"
+2. [Competitor B pricing page] — "How they handle free tier messaging"
+3. [User interview transcript] — "Lam user 01: pain points with current tool"
+4. [Design article URL] — "Relevance to our spacing system redesign"
+5. [Your own audit doc] — "Findings from last usability test"
+
+SYNTHESIS QUESTIONS TO ASK:
+- "What patterns appear across all competitor onboarding flows?"
+- "What do users consistently mention as friction points?"
+- "Where do our current designs contradict research findings?"</pre>
+        </div>
+
+        <textarea placeholder="Paste synthesis output từ NotebookLM vào đây..." aria-label="Research synthesis workspace"></textarea>
+
+        <div class="success-criteria">
+          <div class="success-criteria-label">SUCCESS CRITERIA</div>
+          <label><input type="checkbox"> Notebook có 5+ sources (mix: screenshots, PDFs, URLs)</label>
+          <label><input type="checkbox"> Mỗi source có 1-line annotation giải thích relevance</label>
+          <label><input type="checkbox"> 3 cross-reference questions — AI trả lời có citations</label>
+          <label><input type="checkbox"> Generate Audio Overview — nghe và verify accuracy</label>
+          <label><input type="checkbox"> Một synthesis insight là genuinely new (không obvious từ từng source riêng lẻ)</label>
+        </div>
+      </div>
+
+      <div class="apply-challenge">
+        <div class="apply-challenge-label"><i class="ph ph-lightning"></i> APPLY CHALLENGE</div>
+        <p>Dùng Audio Overview feature của NotebookLM để tạo một 5-minute audio summary cho một stakeholder không có thời gian đọc. Chia sẻ audio với họ thay vì gửi doc. Đây là cách research compound thêm giá trị — nó trở thành communication tool, không chỉ là storage.</p>
+      </div>
+
+      <!-- Level 1 closing narration -->
+      <div class="audio-guide" role="region" aria-label="Level 1 closing narration">
+        <div class="audio-label"><i class="ph ph-headphones"></i> LEVEL 1 — CLOSING</div>
+        <audio controls preload="none" style="width:100%">
+          <source src="../audio/level_1_closing.wav" type="audio/wav">
+        </audio>
+        <details class="transcript"><summary>TRANSCRIPT</summary><p>Chúc mừng bạn đã hoàn thành Level 1. Bạn đã biết cách xây Context Foundation 3 lớp, viết prompt BRIEF với feedback loop tự động, và tạo research notebook tích lũy theo thời gian. Ba kỹ năng này là nền móng cho mọi thứ tiếp theo. Level 2 sẽ biến context foundation này thành một design system thực sự — token set, component docs, và consistency audit loop.</p></details>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- QUIZ -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="session-divider" id="quiz"></div>
+      <div class="quiz">
+        <div class="quiz-title"><i class="ph ph-exam"></i> LEVEL 1 SELF-CHECK QUIZ</div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q1: Tại sao ad-hoc prompting cho ra design output không nhất quán?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) Gemini không đáng tin cậy</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) Không có persistent context — AI quên design system của bạn sau mỗi chat</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) Bạn đang dùng sai model</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) Prompt cần phải dài hơn</li>
+          </ul>
+          <div class="quiz-answer">B — Cold start problem: AI không có memory về product context, design tokens, hay past decisions. Một Context Foundation persistent giải quyết điều này bằng cách load context một lần cho mọi session.</div>
+        </div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q2: Trong framework BRIEF, "F" là viết tắt của gì và tại sao nó quan trọng?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) Format — đảm bảo output có cấu trúc</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) Feedback Loop — cho phép self-evaluation và quality gates tự động</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) Foundation — load context vào prompt</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) Filter — loại bỏ output không phù hợp</li>
+          </ul>
+          <div class="quiz-answer">B — Feedback Loop là thứ Grand Masterplan đang thiếu (Gap 1). Nó tạo automatic quality check: AI tự score output trước khi bạn nhận, flag bất cứ thứ gì dưới ngưỡng bạn đặt ra.</div>
+        </div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q3: Khi nào bạn KHÔNG nên dùng Chain-of-Thought prompting?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) Quyết định design phức tạp nhiều bước</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) Task đơn giản một output (waste tokens, thêm noise)</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) Không bao giờ — luôn dùng CoT</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) Khi bạn có ít thời gian</li>
+          </ul>
+          <div class="quiz-answer">B — CoT tốt cho quyết định multi-step phức tạp, nhưng với task đơn giản nó waste tokens và thêm noise không cần thiết. Đây là fix cho Gap 2 (token overflow) trong Grand Masterplan của bạn.</div>
+        </div>
+
+        <div class="quiz-item" data-answer="1">
+          <div class="quiz-question">Q4: Điều gì khiến NotebookLM vượt trội hơn Gemini chat cho design research?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) Model lớn hơn</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) Source retention + automatic cross-referencing + citations</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) Response nhanh hơn</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) Giao diện đẹp hơn</li>
+          </ul>
+          <div class="quiz-answer">B — NotebookLM giữ 100% sources, tự động cross-reference, và cung cấp citations. Gemini chat mất tất cả khi đóng tab. Đây là sự khác biệt giữa research tích lũy và research bay hơi.</div>
+        </div>
+
+        <div class="quiz-item" data-answer="2">
+          <div class="quiz-question">Q5: Design output của bạn score 5/10 về consistency. Bạn fix layer nào trước?</div>
+          <ul class="quiz-options">
+            <li data-option="0" onclick="selectQuiz(this)">A) Viết prompt dài hơn (Layer 3)</li>
+            <li data-option="1" onclick="selectQuiz(this)">B) Thêm templates (Layer 2)</li>
+            <li data-option="2" onclick="selectQuiz(this)">C) Củng cố Context Foundation (Layer 1)</li>
+            <li data-option="3" onclick="selectQuiz(this)">D) Đổi sang AI tool khác</li>
+          </ul>
+          <div class="quiz-answer">C — Vấn đề consistency hầu như luôn trỏ về missing context ở Layer 1. Củng cố design tokens, behavioral user data, anti-patterns trước khi chỉnh prompt. Layer 1 là nền — Layer 3 là mái nhà.</div>
+        </div>
+      </div>
+
+      <!-- Bottom Nav -->
+      <div class="bottom-nav">
+        <a href="../index.html"><i class="ph ph-arrow-left"></i> Hub</a>
+        <a href="level-2-design-system.html">Level 2: Design System <i class="ph ph-arrow-right"></i></a>
+      </div>
+
+      <div class="footer">
+        <div class="footer-brand">AI Product Design Workshop</div>
+        <p>Lam's Curriculum &middot; Level 1 of 4 &middot; Foundation</p>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Copy button
+    function copyCode(btn) {
+      const pre = btn.parentElement.querySelector('pre');
+      navigator.clipboard.writeText(pre.textContent.trim()).then(() => {
+        btn.textContent = 'COPIED';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'COPY'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+
+    // Quiz
+    function selectQuiz(li) {
+      const item = li.closest('.quiz-item');
+      const correctAnswer = parseInt(item.dataset.answer);
+      const selectedOption = parseInt(li.dataset.option);
+      const options = item.querySelectorAll('.quiz-options li');
+      const answer = item.querySelector('.quiz-answer');
+
+      options.forEach(o => { o.classList.remove('selected', 'correct', 'incorrect'); });
+
+      if (selectedOption === correctAnswer) {
+        li.classList.add('correct');
+      } else {
+        li.classList.add('incorrect');
+        options[correctAnswer].classList.add('correct');
+      }
+      answer.classList.add('revealed');
+    }
+  </script>
+</body>
+</html>
