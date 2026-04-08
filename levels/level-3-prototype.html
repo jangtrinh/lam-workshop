@@ -305,6 +305,18 @@ No abstract descriptions like "primary color" — use actual values.</pre>
         <p>Lấy DESIGN.MD của bạn và paste vào 3 AI tool khác nhau (Gemini, AI Studio, Antigravity). Hỏi mỗi tool tạo cùng một component — ví dụ: button primary. So sánh output. Nếu output khác nhau nhiều, Section 9 (Agent Prompt Guide) cần viết cụ thể hơn.</p>
       </div>
 
+      <!-- Pre-Flight Checklist: Productive Friction Gate -->
+      <div class="warning">
+        <div class="warning-label"><i class="ph ph-warning"></i> PRE-FLIGHT CHECKLIST — TRƯỚC KHI VIBECODING</div>
+        <p>Dừng lại. Trước khi paste DESIGN.MD vào Antigravity, verify bằng tay 3 điều:</p>
+        <ol>
+          <li><strong>Token values match nguồn gốc?</strong> — So hex codes trong DESIGN.MD với Figma/screenshot. Sai 1 hex = cả page sai màu.</li>
+          <li><strong>Interaction states đã mô tả?</strong> — Hover, active, disabled, loading, error. AI bỏ qua state nào không viết.</li>
+          <li><strong>Edge cases đã liệt kê?</strong> — Empty state, long text, mobile. DESIGN.MD thiếu = AI đoán.</li>
+        </ol>
+        <p><strong>3 phút verify = tránh 30 phút debug.</strong> Lancet 2025: bác sĩ dùng AI có detection rate giảm 6% vì accept mà không verify. Design cũng vậy.</p>
+      </div>
+
       <!-- ═══════════════════════════════════════ -->
       <!-- SESSION 3.2 -->
       <!-- ═══════════════════════════════════════ -->
