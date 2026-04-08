@@ -133,6 +133,126 @@
         <p>Architects don't hand contractors a mood board saying "make it feel modern." They write a Design Brief: exact materials, dimensions, tolerances, constraints. The contractor reads and builds to spec. <strong>DESIGN.MD is your Design Brief. The AI agent is the contractor.</strong></p>
       </div>
 
+      <!-- FIGMA MCP → DESIGN.MD -->
+      <h3>Shortcut: Figma MCP → DESIGN.MD Tự Động</h3>
+
+      <div class="why">
+        <div class="why-label">TẠI SAO DÙNG FIGMA MCP</div>
+        <p>Manual compile từ Level 2 mất 30-60 phút. Figma MCP cho phép AI agent đọc trực tiếp design system từ Figma file — extract tokens, components, styles — rồi auto-generate DESIGN.MD trong <strong>2 phút</strong>. Bạn review và sửa thay vì viết từ đầu.</p>
+      </div>
+
+      <h4>Figma MCP là gì?</h4>
+      <p>Model Context Protocol (MCP) là cầu nối giữa AI agent và external tools. Figma cung cấp official MCP server tại <code>mcp.figma.com</code> — AI agent đọc được file Figma, extract design tokens, đọc component specs, và thậm chí viết ngược lại Figma canvas.</p>
+
+      <table>
+        <tr><th>Khả năng</th><th>Chi tiết</th></tr>
+        <tr><td><strong>Đọc Design Tokens</strong></td><td>Colors, typography, spacing, effects — extract từ Figma styles</td></tr>
+        <tr><td><strong>Đọc Components</strong></td><td>Variants, properties, instances — từ component library</td></tr>
+        <tr><td><strong>Đọc Layout</strong></td><td>Auto layout, constraints, responsive rules</td></tr>
+        <tr><td><strong>Đọc Annotations</strong></td><td>Dev Mode annotations, comments, specs</td></tr>
+        <tr><td><strong>Viết Canvas</strong></td><td>Tạo shapes, text, frames ngược lại Figma (beta)</td></tr>
+      </table>
+
+      <h4>Setup: 3 Bước</h4>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre># Bước 1: Thêm Figma MCP vào Claude Code / Antigravity
+claude mcp add --transport http figma https://mcp.figma.com/mcp
+
+# Bước 2: Authorize (mở browser, login Figma, approve)
+# → Tự động redirect sau khi approve
+
+# Bước 3: Verify connection
+# Trong Claude Code / Antigravity, gõ:
+# "List my Figma files" → phải thấy file list</pre>
+      </div>
+
+      <p>Nếu dùng <strong>Cursor</strong> thay Antigravity:</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre># Cursor: thêm vào .cursor/mcp.json
+{
+  "mcpServers": {
+    "figma": {
+      "url": "https://mcp.figma.com/mcp"
+    }
+  }
+}</pre>
+      </div>
+
+      <h4>Workflow: Figma → DESIGN.MD</h4>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>FIGMA FILE (design system)
+    ↓
+┌─────────────────────────────────────┐
+│ Figma MCP Server                    │
+│ AI agent đọc:                       │
+│ • Styles → colors, typography       │
+│ • Components → variants, states     │
+│ • Auto Layout → spacing, grid       │
+│ • Dev Mode → specs, annotations     │
+└─────────────────────────────────────┘
+    ↓
+┌─────────────────────────────────────┐
+│ AI Agent (Antigravity / Claude Code)│
+│                                     │
+│ Prompt: "Đọc file Figma [URL].     │
+│ Extract toàn bộ design tokens,      │
+│ component specs, layout rules.      │
+│ Generate DESIGN.MD theo 9-section   │
+│ template."                          │
+└─────────────────────────────────────┘
+    ↓
+DESIGN.MD (auto-generated, bạn review)</pre>
+      </div>
+
+      <h4>Prompt Mẫu: Auto-Generate DESIGN.MD từ Figma</h4>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>Read the Figma file at [paste Figma URL here].
+
+Extract the complete design system and generate a DESIGN.MD
+file with these 9 sections:
+
+1. Visual Theme & Atmosphere — describe the overall mood
+2. Color Palette & Roles — all colors with hex + semantic roles
+3. Typography Rules — all font families, sizes, weights, hierarchy
+4. Component Stylings — buttons, cards, inputs with all states
+5. Layout Principles — spacing scale, containers, grid system
+6. Depth & Elevation — shadows, layering, surface hierarchy
+7. Do's and Don'ts — 10+ rules based on the design patterns
+8. Responsive Behavior — breakpoints, scaling, collapse rules
+9. Agent Prompt Guide — 3 copy-paste prompts for generating
+   pages that match this design system
+
+Use concrete values (hex codes, px values, font names).
+No abstract descriptions like "primary color" — use actual values.</pre>
+      </div>
+
+      <h4>So sánh: Manual vs Figma MCP</h4>
+      <table>
+        <tr><th></th><th>Manual Compile (Level 2 outputs)</th><th>Figma MCP Auto-Generate</th></tr>
+        <tr><td><strong>Thời gian</strong></td><td>30-60 phút</td><td><strong>2-5 phút</strong></td></tr>
+        <tr><td><strong>Nguồn</strong></td><td>Token tables + component docs</td><td><strong>Figma file trực tiếp</strong></td></tr>
+        <tr><td><strong>Accuracy</strong></td><td>Phụ thuộc Level 2 quality</td><td><strong>Đọc values thật từ Figma</strong></td></tr>
+        <tr><td><strong>Coverage</strong></td><td>Chỉ những gì đã extract</td><td><strong>Toàn bộ file</strong></td></tr>
+        <tr><td><strong>Khi nào dùng</strong></td><td>Chưa có Figma file</td><td><strong>Đã có Figma design system</strong></td></tr>
+      </table>
+
+      <div class="insight">
+        <div class="insight-label"><i class="ph ph-book-open"></i> KEY INSIGHT — DÙNG CẢ HAI</div>
+        <p>Figma MCP cho bạn bản draft nhanh trong 2 phút. Nhưng AI có thể miss context (tại sao chọn màu này? khi nào dùng variant này?). Dùng Level 2 knowledge để <strong>review và bổ sung</strong> — đặc biệt Section 7 (Do's/Don'ts) và Section 9 (Agent Prompt Guide) cần human judgment.</p>
+      </div>
+
+      <div class="warning">
+        <div class="warning-label"><i class="ph ph-warning"></i> LIMITATIONS</div>
+        <p><strong>Figma REST API</strong> (full token extraction) yêu cầu Figma Enterprise. Free accounts giới hạn 6 MCP tool calls/tháng. <strong>Workaround:</strong> Dùng Figma MCP để extract một lần, save DESIGN.MD vào git, rồi làm việc từ file — không cần gọi MCP lại.</p>
+      </div>
+
       <div class="best-practice">
         <div class="best-practice-label"><i class="ph ph-check-circle"></i> BEST PRACTICE — VERSION CONTROL YOUR DESIGN.MD</div>
         <div class="do-this">
