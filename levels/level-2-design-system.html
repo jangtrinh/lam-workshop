@@ -177,6 +177,43 @@ After the table, flag any value you extracted that you are less than 90% confide
         <details class="transcript"><summary>TRANSCRIPT</summary><p>Screenshot 4 key screens từ project hiện tại của bạn. Chạy extraction pipeline với prompt trên. Kiểm tra: có ít nhất 20 tokens không? Tất cả names có semantic không? Cross-check 3 token ngẫu nhiên với screenshot thực tế.</p></details>
       </div>
 
+      <details class="advanced">
+        <summary><i class="ph ph-diamond"></i> VÍ DỤ: GEM — TOKEN EXTRACTION TỪ SCREENSHOT</summary>
+        <div>
+          <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>// Gem System Instruction: Token Extractor
+Bạn là Design System Architect. Khi user upload screenshot UI,
+extract TOÀN BỘ design tokens theo format sau:
+
+## Colors (hex + role)
+| Token Name | Hex | Role | Used Where |
+|-----------|-----|------|-----------|
+
+## Typography (font + size + weight)
+| Tier | Font Family | Size | Weight | Line Height | Used For |
+|------|------------|------|--------|------------|---------|
+
+## Spacing (px values)
+| Token | Value | Used Where |
+|-------|-------|-----------|
+
+## Border Radius
+| Token | Value | Used Where |
+
+## Shadows
+| Token | Value | Used Where |
+
+Rules:
+- Chỉ output CONCRETE values (hex codes, px, font names)
+- KHÔNG dùng tên trừu tượng như "primary" mà không kèm value
+- Nếu không chắc value → ghi "~approximate" kèm giá trị gần đúng
+- Output dạng Markdown table, sẵn copy vào DESIGN.MD</pre>
+          </div>
+          <p><strong>Dùng:</strong> Upload 1-4 screenshots → Gem trả về token table hoàn chỉnh trong 30 giây.</p>
+        </div>
+      </details>
+
       <div class="reflection" id="exercise-2-1">
         <div class="reflection-label"><i class="ph ph-pencil-simple"></i> BÀI TẬP — EXTRACT YOUR TOKEN SET</div>
         <h3>Screenshot 4 key screens và chạy extraction pipeline</h3>
@@ -378,6 +415,50 @@ Given a component name and a token set, produce a COMPLETE component spec.
         <details class="transcript"><summary>TRANSCRIPT</summary><p>Generate complete specs cho 3 components từ project của bạn: button, card, và một component nữa bạn chọn. Mỗi spec phải có ít nhất 3 variants, 4 states, tokens used, do's và don'ts. Cross-check token references với token set từ Session 2.1 — không được có invented token nào.</p></details>
       </div>
 
+      <details class="advanced">
+        <summary><i class="ph ph-diamond"></i> VÍ DỤ: GEM — COMPONENT SPEC GENERATOR</summary>
+        <div>
+          <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>// Gem System Instruction: Component Spec Writer
+Bạn là Design System Documentarian. Khi user cung cấp:
+1. Token set (colors, typography, spacing)
+2. Tên component (button, card, input, etc.)
+
+Generate component spec với 4 phần:
+
+## [Component Name]
+
+### Anatomy
+- Liệt kê mọi phần tử con (icon, label, container, etc.)
+
+### States (bắt buộc đủ 6)
+| State | Visual Change | Token Used |
+|-------|-------------|-----------|
+| Default | ... | ... |
+| Hover | ... | ... |
+| Active/Pressed | ... | ... |
+| Focused | ... | ... |
+| Disabled | ... | ... |
+| Loading | ... | ... |
+
+### Variants
+| Variant | Khi nào dùng | Visual Difference |
+|---------|-------------|------------------|
+
+### Do's and Don'ts
+| Do | Don't | Tại sao |
+|----|-------|---------|
+
+Rules:
+- Mọi visual change phải reference token từ token set
+- KHÔNG dùng hardcoded values
+- Mỗi variant phải có "khi nào dùng" rõ ràng</pre>
+          </div>
+          <p><strong>Dùng:</strong> Paste token set + nói <em>"Generate spec cho Button component"</em> → full spec trong 1 phút.</p>
+        </div>
+      </details>
+
       <div class="reflection" id="exercise-2-2">
         <div class="reflection-label"><i class="ph ph-pencil-simple"></i> BÀI TẬP — DOCUMENT 3 CORE COMPONENTS</div>
         <h3>Generate complete specs cho 3 components từ token set của bạn</h3>
@@ -578,6 +659,36 @@ If 0 deviations found, explain your analysis reasoning — do not just say "all 
         </audio>
         <details class="transcript"><summary>TRANSCRIPT</summary><p>Lấy 4 screens từ project hiện tại. Load vào Gemini cùng với token set từ Session 2.1. Chạy audit prompt. Nhận deviation report. Apply fixes cho ít nhất 2 deviations. Re-audit để verify fixes đã giải quyết vấn đề. Đây là verification loop hoàn chỉnh.</p></details>
       </div>
+
+      <details class="advanced">
+        <summary><i class="ph ph-diamond"></i> VÍ DỤ: GEM — CONSISTENCY AUDITOR</summary>
+        <div>
+          <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>// Gem System Instruction: Design Consistency Auditor
+Bạn là QA Designer chuyên audit visual consistency.
+Khi user upload nhiều screenshots + token set, bạn:
+
+1. So sánh TỪNG screen với token set
+2. Tìm MỌI deviation: hardcoded color, sai spacing, wrong font size
+3. Output bảng deviation report:
+
+| # | Screen | Element | Expected (token) | Actual | Severity |
+|---|--------|---------|------------------|--------|----------|
+
+Severity levels:
+- CRITICAL: Color/font hoàn toàn sai, user sẽ thấy ngay
+- MAJOR: Spacing sai 4px+, shadow inconsistent
+- MINOR: Sai 1-2px, border-radius lệch nhẹ
+
+Rules:
+- KHÔNG bỏ qua bất kỳ deviation nào
+- So sánh cross-screen: cùng component phải IDENTICAL across screens
+- Kết thúc bằng summary: "X critical, Y major, Z minor"</pre>
+          </div>
+          <p><strong>Dùng:</strong> Upload 4+ screenshots cùng lúc + paste token set → Gem trả về deviation report trong 2 phút.</p>
+        </div>
+      </details>
 
       <div class="reflection" id="exercise-2-3">
         <div class="reflection-label"><i class="ph ph-pencil-simple"></i> BÀI TẬP — AUDIT 4 SCREENS</div>

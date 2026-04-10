@@ -166,6 +166,36 @@ VÍ DỤ STITCH WORKFLOW CONFIG:
         <details class="transcript"><summary>TRANSCRIPT</summary><p>Tạo Stitch workflow đầu tiên của bạn. Workflow này load DESIGN.MD tự động và generate một trang hoàn chỉnh từ một trigger duy nhất. Chạy nó ba lần và verify output nhất quán. Đây là reproducibility test: nếu ba lần cho kết quả khác nhau, workflow cần được tighten.</p></details>
       </div>
 
+      <details class="advanced">
+        <summary><i class="ph ph-robot"></i> VÍ DỤ: ANTIGRAVITY AGENT — MULTI-PAGE TỪNG BƯỚC</summary>
+        <div>
+          <p>Thay vì tạo 3 pages cùng lúc (dễ lỗi), tạo từng page với shared context:</p>
+          <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>// Bước 1: Tạo shared layout
+Đọc DESIGN.MD. Tạo shared.css với CSS variables từ tokens.
+Tạo shared.js với hamburger menu toggle.
+
+// Bước 2: Tạo index.html (hub)
+Dùng shared.css. Tạo hub page link đến 3 sub-pages.
+Nav sidebar với links: Home, Products, About.
+
+// Bước 3: Tạo products.html
+Dùng CÙNG shared.css. Product grid 6 cards.
+Mỗi card: image placeholder, title, price, CTA button.
+Click card → modal overlay với product detail.
+
+// Bước 4: Tạo about.html
+Dùng CÙNG shared.css. Team section, timeline, contact form.
+
+// Bước 5: Verify
+Mở cả 3 pages trên browser.
+Check: nav links work? CSS consistent? Responsive ok?</pre>
+          </div>
+          <p><strong>Key:</strong> Mỗi page reference cùng <code>shared.css</code> + <code>DESIGN.MD</code> → consistency tự động.</p>
+        </div>
+      </details>
+
       <div class="reflection" id="exercise-4-1">
         <div class="reflection-label"><i class="ph ph-pencil-simple"></i> EXERCISE</div>
         <h3>Build Your First Stitch Workflow</h3>
@@ -319,6 +349,33 @@ VERSION N+1
         </audio>
         <details class="transcript"><summary>TRANSCRIPT</summary><p>Lấy prototype từ session 3.2. Chạy ba vòng audit-fix-reaudit. Deviation count phải giảm đơn điệu: V1 nhiều hơn V2 nhiều hơn V3. Commit tất cả ba version lên git với audit report đi kèm. Đây là bằng chứng convergent iteration của bạn.</p></details>
       </div>
+
+      <details class="advanced">
+        <summary><i class="ph ph-robot"></i> VÍ DỤ: ANTIGRAVITY AGENT — QA AUDIT + AUTO-FIX</summary>
+        <div>
+          <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>Đọc DESIGN.MD và tất cả HTML files trong project.
+
+Bước 1 — AUDIT:
+So sánh mỗi HTML file với DESIGN.MD tokens.
+Tìm mọi deviation: hardcoded colors, sai spacing, wrong fonts.
+Output deviation report dạng table.
+
+Bước 2 — FIX:
+Với mỗi CRITICAL và MAJOR deviation, sửa trực tiếp trong code.
+Thay hardcoded values bằng CSS variables từ DESIGN.MD.
+
+Bước 3 — RE-AUDIT:
+Chạy lại audit sau khi fix.
+Confirm deviation count giảm.
+Output: "Before: X deviations → After: Y deviations"
+
+KHÔNG sửa MINOR deviations tự động — list chúng để human review.</pre>
+          </div>
+          <p><strong>Vòng lặp:</strong> Chạy prompt này 2-3 lần. Mỗi vòng deviation count phải giảm. Khi count = 0 → ready to ship.</p>
+        </div>
+      </details>
 
       <div class="reflection" id="exercise-4-2">
         <div class="reflection-label"><i class="ph ph-pencil-simple"></i> EXERCISE</div>

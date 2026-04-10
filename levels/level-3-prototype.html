@@ -472,6 +472,62 @@ function handleUpgrade(btn) {
         <details class="transcript"><summary>TRANSCRIPT</summary><p>Load DESIGN.MD vào Antigravity. Describe một trang bằng tiếng Việt. Generate. Kiểm tra năm element ngẫu nhiên với DESIGN.MD tokens. Sau đó thực hiện một iteration nhỏ và verify consistency được giữ nguyên. Đây là bài test thật sự cho DESIGN.MD của bạn.</p></details>
       </div>
 
+      <details class="advanced">
+        <summary><i class="ph ph-robot"></i> VÍ DỤ: ANTIGRAVITY AGENT — TẠO LANDING PAGE TỪ DESIGN.MD</summary>
+        <div>
+          <p>Trong Antigravity (VS Code), load DESIGN.MD rồi dùng prompt sau:</p>
+          <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>Đọc file DESIGN.MD trong project này.
+
+Tạo file landing-page.html với:
+- Hero section: heading + subheading + CTA button
+- Features grid: 3 columns, icon + title + description
+- Testimonials: 3 cards với avatar, name, quote
+- CTA section: email signup form
+- Footer: links + copyright
+
+Rules:
+- Single HTML file, Tailwind CDN, vanilla JS
+- MỌI colors, fonts, spacing PHẢI lấy từ DESIGN.MD
+- KHÔNG dùng hardcoded hex — dùng CSS variables
+- Responsive: mobile-first, 3 breakpoints
+- Dark mode toggle bằng vanilla JS
+- Scroll animation fade-in cho mỗi section
+- lang="vi" trên html tag</pre>
+          </div>
+          <p><strong>Iterate:</strong> <em>"Đổi hero sang dark background"</em> → <em>"Thêm pricing section 3 tiers"</em> → <em>"Fix spacing giữa sections theo DESIGN.MD"</em></p>
+        </div>
+      </details>
+
+      <details class="advanced">
+        <summary><i class="ph ph-robot"></i> VÍ DỤ: ANTIGRAVITY AGENT — DASHBOARD INTERACTIVE</summary>
+        <div>
+          <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>Đọc DESIGN.MD. Tạo dashboard.html với:
+
+Layout:
+- Sidebar 240px: logo, nav links (Dashboard, Users, Settings, Reports)
+- Main content: greeting + stats cards + chart area + recent table
+
+Components:
+- 4 stat cards: Total Users, Revenue, Growth %, Active Now
+- Chart placeholder: div với border, "Chart here" text
+- Table: 5 rows sample data, sortable headers
+- Profile dropdown: avatar + name + logout
+
+Interactions (vanilla JS):
+- Sidebar nav: active state khi click
+- Stat cards: hover scale(1.02) transition
+- Table rows: hover highlight
+- Profile dropdown: toggle on click, close on outside click
+
+Dùng đúng tokens từ DESIGN.MD. Không hardcoded values.</pre>
+          </div>
+        </div>
+      </details>
+
       <div class="reflection" id="exercise-3-2">
         <div class="reflection-label"><i class="ph ph-pencil-simple"></i> EXERCISE</div>
         <h3>Build Your First Prototype Page</h3>

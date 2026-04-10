@@ -187,6 +187,37 @@
         <details class="transcript"><summary>TRANSCRIPT</summary><p>Bài tập: Tạo CONTEXT.md cho project hiện tại của Lam. Cần 5 phần: thông tin sản phẩm, nguyên tắc thiết kế, target user với ít nhất 3 behavioral attributes, constraints, và anti-patterns từ các lỗi thực tế đã gặp. Tiêu chí thành công: không có placeholder nào, target user section có behavioral data thật, anti-patterns có ít nhất 3 mục từ thất bại thực tế.</p></details>
       </div>
 
+      <details class="advanced">
+        <summary><i class="ph ph-diamond"></i> VÍ DỤ: GEM (GEMINI) — TẠO CONTEXT.MD TỰ ĐỘNG</summary>
+        <div>
+          <p>Tạo một Gem trong Gemini với system instruction sau, rồi paste brief sản phẩm vào:</p>
+          <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>// Gem System Instruction: Context Builder
+Bạn là AI Product Context Architect. Khi user cung cấp thông tin
+về sản phẩm, bạn sẽ generate CONTEXT.md hoàn chỉnh gồm 5 phần:
+
+1. Product — one-liner, target user, core problem
+2. Design Principles — 3-5 nguyên tắc có giải thích
+3. Target User — 3+ behavioral attributes (không chỉ demographics)
+4. Constraints — kỹ thuật, thời gian, ngân sách, nền tảng
+5. Anti-Patterns — ít nhất 3 điều KHÔNG được làm, từ lỗi thực tế
+
+Output format: Markdown, sẵn sàng save thành file .md
+Tone: Concise, actionable, không generic</pre>
+          </div>
+          <p><strong>Prompt mẫu:</strong></p>
+          <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>Sản phẩm: [tên app], phục vụ [ai], giải quyết [vấn đề gì].
+Tech stack: [React Native / Flutter / Web].
+Design hiện tại: [monochrome / colorful / dark mode].
+Lỗi hay gặp: [AI generate gradient khi không muốn, spacing không đều].
+Tạo CONTEXT.md cho project này.</pre>
+          </div>
+        </div>
+      </details>
+
       <div class="reflection" id="exercise-1-1">
         <div class="reflection-label"><i class="ph ph-pencil-simple"></i> BÀI TẬP — XÂY CONTEXT FOUNDATION</div>
         <h3>Tạo CONTEXT.md cho project hiện tại của bạn</h3>
@@ -382,6 +413,32 @@ Flag anything below 7 and explain why.</pre>
         </audio>
         <details class="transcript"><summary>TRANSCRIPT</summary><p>Lấy một prompt đang hoạt động tốt nhất trong Grand Masterplan của bạn. Rewrite nó theo framework BRIEF. Đặc biệt chú ý phần F — thêm 3 tiêu chí đánh giá cụ thể. Chạy cả hai phiên bản, so sánh kết quả trên CARE rubric của bạn. BRIEF version phải score cao hơn ít nhất 2 điểm.</p></details>
       </div>
+
+      <details class="advanced">
+        <summary><i class="ph ph-diamond"></i> VÍ DỤ: GEM — BRIEF PROMPT CHO DESIGN TASK</summary>
+        <div>
+          <p>Tạo Gem với system instruction BRIEF, rồi mỗi lần cần design task, chỉ cần mô tả task:</p>
+          <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<pre>// Gem System Instruction: BRIEF Designer
+Bạn là Senior UI Designer. Mỗi khi user mô tả design task,
+bạn output theo framework BRIEF:
+
+B — Background: Load từ CONTEXT.md (user sẽ paste)
+R — Role: Senior UI Designer, 8 năm kinh nghiệm SaaS
+I — Intent: Mục đích output (stakeholder review / dev handoff / user test)
+E — Expectations: Format cụ thể (Tailwind classes / Figma specs / HTML)
+F — Feedback Loop: Tự score output 1-10 theo 5 tiêu chí:
+    1. Token compliance (dùng đúng colors, spacing từ context)
+    2. Hierarchy clarity (headings, body, labels phân biệt rõ)
+    3. Responsive logic (mobile-first, 3 breakpoints)
+    4. Interaction states (hover, active, disabled, loading)
+    5. Accessibility (contrast ratio, aria-labels, focus states)
+    Flag bất kỳ tiêu chí nào dưới 7.</pre>
+          </div>
+          <p><strong>Dùng:</strong> Paste CONTEXT.md trước, rồi nói: <em>"Tạo card component cho dashboard, mục đích dev handoff, format Tailwind HTML."</em></p>
+        </div>
+      </details>
 
       <div class="reflection" id="exercise-1-2">
         <div class="reflection-label"><i class="ph ph-pencil-simple"></i> BÀI TẬP — REWRITE PROMPT TỐT NHẤT</div>
